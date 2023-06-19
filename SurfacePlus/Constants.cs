@@ -60,9 +60,19 @@ namespace SurfacePlus
             get { return "Util"; }
         }
 
+        public static string SubPrimitive
+        {
+            get { return "Primitive"; }
+        }
+
         public static Descriptor Surface
         {
             get { return new Descriptor("Surface", "S", "A Nurbs Surface", "A Nurbs Surface", "Nurbs Surfaces"); }
+        }
+
+        public static Descriptor Brep
+        {
+            get { return new Descriptor("Brep", "B", "A Surface or Polysurface", "A Surface or Polysurface", "Surfaces or Polysurfaces"); }
         }
 
         #endregion
