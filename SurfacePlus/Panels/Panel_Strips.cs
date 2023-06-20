@@ -3,17 +3,17 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Freeform
+namespace SurfacePlus.Panels
 {
-    public class CurveOnSurface : GH_Component
+    public class Panel_Strips : Panel__BaseStrips
     {
         /// <summary>
-        /// Initializes a new instance of the CurveOnSurface class.
+        /// Initializes a new instance of the Panel_Strips class.
         /// </summary>
-        public CurveOnSurface()
-          : base("Curve on Surface", "Crv Srf",
-              "Draws a curve on a surface from 2D Point Coordinates",
-              Constants.CatCurve, "Spline")
+        public Panel_Strips()
+          : base("Panel Strips", "Strips",
+              "Divide a surface into a series of Strips",
+              Constants.CatSurface, Constants.SubSubdivide)
         {
         }
 
@@ -22,12 +22,8 @@ namespace SurfacePlus.Freeform
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
-            pManager[0].Optional = false;
-            pManager.AddPointParameter("Points", "P", "3d Points", GH_ParamAccess.item);
-            pManager[1].Optional = true;
-            pManager.AddNumberParameter("Tolerance", "D", "Tolerance", GH_ParamAccess.item, 0.001);
-            pManager[2].Optional = true;
+            base.RegisterInputParams(pManager);
+
         }
 
         /// <summary>
@@ -35,7 +31,7 @@ namespace SurfacePlus.Freeform
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddCurveParameter("Curve", "C", "Curve on Surface", GH_ParamAccess.item);
+            base.RegisterOutputParams(pManager);
         }
 
         /// <summary>
@@ -46,19 +42,34 @@ namespace SurfacePlus.Freeform
         {
             Surface surface = null;
             if (!DA.GetData(0, ref surface)) return;
-
             NurbsSurface surface1 = surface.ToNurbsSurface();
 
-            List<Point3d> points = new List<Point3d>();
-            DA.GetDataList(1, points);
+            int type = 0;
+            DA.GetData(1, ref type);
 
-            double tolerance = 0.001;
-            DA.GetData(2, ref tolerance);
+            int direction = 0;
+            DA.GetData(2, ref direction);
 
-            NurbsCurve curve = surface1.InterpolatedCurveOnSurface(points, tolerance);
+            int count = 4;
+            DA.GetData(3, ref count);
 
-            DA.SetData(0, curve);
-        }
+            switch ((PanelTypes)type)
+            {
+                case PanelTypes.Corner:
+                    DA.SetDataList(0, surface1.CornerStrips((SurfaceDirection)direction, count));
+                    break;
+                case PanelTypes.Loft:
+                    DA.SetDataList(0, surface1.LoftStrips((SurfaceDirection)direction, count));
+                    break;
+                case PanelTypes.Edge:
+                    DA.SetDataList(0, surface1.EdgeStrips((SurfaceDirection)direction, count));
+                    break;
+                case PanelTypes.Split:
+            DA.SetDataList(0, surface1.SplitStrips((SurfaceDirection)direction, count));
+                    break;
+            }
+    }
+
         /// <summary>
         /// Provides an Icon for the component.
         /// </summary>
@@ -77,7 +88,7 @@ namespace SurfacePlus.Freeform
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("676b8304-0e2d-4812-a606-03326630a5bc"); }
+            get { return new Guid("73d78964-167f-4006-bf8e-fd008071a8f9"); }
         }
     }
 }

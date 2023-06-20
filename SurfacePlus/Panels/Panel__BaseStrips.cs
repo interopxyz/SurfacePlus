@@ -1,19 +1,24 @@
 ﻿using Grasshopper.Kernel;
+using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Freeform
+namespace SurfacePlus.Panels
 {
-    public class CurveOnSurface : GH_Component
+    public abstract class Panel__BaseStrips : Panel__BaseType
     {
         /// <summary>
-        /// Initializes a new instance of the CurveOnSurface class.
+        /// Initializes a new instance of the Panel_BaseStrips class.
         /// </summary>
-        public CurveOnSurface()
-          : base("Curve on Surface", "Crv Srf",
-              "Draws a curve on a surface from 2D Point Coordinates",
-              Constants.CatCurve, "Spline")
+        public Panel__BaseStrips()
+          : base("Panel_BaseStrips", "Nickname",
+              "Description",
+              "Category", "Subcategory")
+        {
+        }
+
+        public Panel__BaseStrips(string Name, string NickName, string Description, string Category, string Subcategory) : base(Name, NickName, Description, Category, Subcategory)
         {
         }
 
@@ -22,12 +27,15 @@ namespace SurfacePlus.Freeform
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
-            pManager[0].Optional = false;
-            pManager.AddPointParameter("Points", "P", "3d Points", GH_ParamAccess.item);
-            pManager[1].Optional = true;
-            pManager.AddNumberParameter("Tolerance", "D", "Tolerance", GH_ParamAccess.item, 0.001);
+            base.RegisterInputParams(pManager);
+            pManager.AddIntegerParameter("Direction", "D", "The direction of the primary division", GH_ParamAccess.item, 0);
             pManager[2].Optional = true;
+            pManager.AddIntegerParameter("Count", "C", "The primary division count", GH_ParamAccess.item, 4);
+            pManager[3].Optional = true;
+
+            Param_Integer paramA = (Param_Integer)pManager[2];
+            paramA.AddNamedValue("U", 0);
+            paramA.AddNamedValue("V", 1);
         }
 
         /// <summary>
@@ -35,7 +43,7 @@ namespace SurfacePlus.Freeform
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddCurveParameter("Curve", "C", "Curve on Surface", GH_ParamAccess.item);
+            base.RegisterOutputParams(pManager);
         }
 
         /// <summary>
@@ -44,21 +52,8 @@ namespace SurfacePlus.Freeform
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            Surface surface = null;
-            if (!DA.GetData(0, ref surface)) return;
-
-            NurbsSurface surface1 = surface.ToNurbsSurface();
-
-            List<Point3d> points = new List<Point3d>();
-            DA.GetDataList(1, points);
-
-            double tolerance = 0.001;
-            DA.GetData(2, ref tolerance);
-
-            NurbsCurve curve = surface1.InterpolatedCurveOnSurface(points, tolerance);
-
-            DA.SetData(0, curve);
         }
+
         /// <summary>
         /// Provides an Icon for the component.
         /// </summary>
@@ -77,7 +72,7 @@ namespace SurfacePlus.Freeform
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("676b8304-0e2d-4812-a606-03326630a5bc"); }
+            get { return new Guid("61bf0bc3-b9cc-4886-b490-a298312f604f"); }
         }
     }
 }

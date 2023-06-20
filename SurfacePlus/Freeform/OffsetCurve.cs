@@ -3,17 +3,17 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus
+namespace SurfacePlus.Freeform
 {
-    public class Rebuild : GH_Component
+    public class OffsetCurve : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the Rebuild class.
+        /// Initializes a new instance of the OffsetCurve class.
         /// </summary>
-        public Rebuild()
-          : base("Rebuild", "Rebuild",
-              "Rebuild a Surface in the U and V direction",
-              Constants.CatSurface, Constants.SubUtilities)
+        public OffsetCurve()
+          : base("Offset Curve from Surface", "Offset Crv Srf",
+              "Offsets a Curve from a Surface",
+              Constants.CatCurve, "Util")
         {
         }
 
@@ -23,15 +23,11 @@ namespace SurfacePlus
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
-            pManager.AddIntegerParameter("Degree U", "U", "The new degree in the U direction", GH_ParamAccess.item);
-            pManager[1].Optional = true;
-            pManager.AddIntegerParameter("Degree V", "V", "The new degree in the V direction", GH_ParamAccess.item);
+            pManager[0].Optional = false;
+            pManager.AddCurveParameter("Curve", "C", "The Curve to offset from the surface", GH_ParamAccess.item);
+            pManager[1].Optional = false;
+            pManager.AddNumberParameter("Distance", "D", "The offset distance", GH_ParamAccess.item, 1);
             pManager[2].Optional = true;
-            pManager.AddIntegerParameter("Count U", "A", "The new control point count in the U direction", GH_ParamAccess.item);
-            pManager[3].Optional = true;
-            pManager.AddIntegerParameter("Count V", "B", "The new control point count in the V direction", GH_ParamAccess.item); 
-            pManager[4].Optional = true;
-
         }
 
         /// <summary>
@@ -39,7 +35,7 @@ namespace SurfacePlus
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Output, GH_ParamAccess.item);
+            pManager.AddCurveParameter("Curve", "C", "The resulting offset curve", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -51,23 +47,17 @@ namespace SurfacePlus
             Surface surface = null;
             if (!DA.GetData(0, ref surface)) return;
 
-            NurbsSurface surface1 = surface.ToNurbsSurface();
+            Curve curve = null;
+            if (!DA.GetData(1, ref curve)) return;
 
-            int Ud = 3;
-            DA.GetData(1, ref Ud);
+            NurbsCurve curve1 = curve.ToNurbsCurve();
 
-            int Vd = 3;
-            DA.GetData(2, ref Vd);
+            double offset = 1.0;
+            DA.GetData(2, ref offset);
 
-            int Up = 4;
-            DA.GetData(3, ref Up);
+            Curve curve2 = curve1.OffsetNormalToSurface(surface, offset);
 
-            int Vp = 4;
-            DA.GetData(4, ref Vp);
-
-            NurbsSurface surface2 = surface1.Rebuild(Ud,Vd,Up,Vp);
-
-            DA.SetData(0, surface2);
+            DA.SetData(0, curve2);
         }
 
         /// <summary>
@@ -88,7 +78,7 @@ namespace SurfacePlus
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("3b437761-edd2-4aa4-9d3e-000d41a499fb"); }
+            get { return new Guid("ac41367e-8d91-48f0-8761-371152c7dbe2"); }
         }
     }
 }

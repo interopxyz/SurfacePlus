@@ -27,29 +27,33 @@ namespace SurfacePlus.Freeform
             pManager.AddBrepParameter("Start Brep", "B0", "The starting brep of the blend", GH_ParamAccess.item);
             pManager[0].Optional = false;
             pManager.AddIntegerParameter("Start Edge", "E0", "The starting edge index from the start Brep", GH_ParamAccess.item, 0);
-            pManager[1].Optional = false;
-            pManager.AddIntervalParameter("Start Domain", "D0", "The starting edge sub domain", GH_ParamAccess.item, new Interval());
-            pManager[2].Optional = false;
+            pManager[1].Optional = true;
             pManager.AddIntegerParameter("Start Type", "T0", "The start ege blend type", GH_ParamAccess.item, 2);
-            pManager[3].Optional = false;
+            pManager[2].Optional = true;
+            pManager.AddIntervalParameter("Start Domain", "D0", "The starting edge sub domain", GH_ParamAccess.item, new Interval());
+            pManager[3].Optional = true;
+            pManager.AddBooleanParameter("Flip Start", "F0", "If true, the starting edge direction will be flipped", GH_ParamAccess.item, false);
+            pManager[4].Optional = true;
 
 
             pManager.AddBrepParameter("End Brep", "B1", "The ending brep of the blend", GH_ParamAccess.item);
-            pManager[4].Optional = false;
-            pManager.AddIntegerParameter("End Edge", "E1", "The ending edge index from the end Brep", GH_ParamAccess.item, 0);
             pManager[5].Optional = false;
-            pManager.AddIntervalParameter("End Domain", "D1", "The ending edge sub domain", GH_ParamAccess.item, new Interval());
-            pManager[6].Optional = false;
+            pManager.AddIntegerParameter("End Edge", "E1", "The ending edge index from the end Brep", GH_ParamAccess.item, 2);
+            pManager[6].Optional = true;
             pManager.AddIntegerParameter("End Type", "T1", "The end edge blend type", GH_ParamAccess.item, 2);
-            pManager[7].Optional = false;
+            pManager[7].Optional = true;
+            pManager.AddIntervalParameter("End Domain", "D1", "The ending edge sub domain", GH_ParamAccess.item, new Interval());
+            pManager[8].Optional = true;
+            pManager.AddBooleanParameter("Flip End", "F1", "If true, the ending edge direction will be flipped", GH_ParamAccess.item, true);
+            pManager[9].Optional = true;
 
-            Param_Integer paramA = (Param_Integer)pManager[3];
+            Param_Integer paramA = (Param_Integer)pManager[2];
             foreach (BlendContinuity value in Enum.GetValues(typeof(BlendContinuity)))
             {
                 paramA.AddNamedValue(value.ToString(), (int)value);
             }
 
-            Param_Integer paramB = (Param_Integer)pManager[7];
+            Param_Integer paramB = (Param_Integer)pManager[6];
             foreach (BlendContinuity value in Enum.GetValues(typeof(BlendContinuity)))
             {
                 paramB.AddNamedValue(value.ToString(), (int)value);
@@ -73,26 +77,32 @@ namespace SurfacePlus.Freeform
             Brep brepA = null;
             if (!DA.GetData(0, ref brepA)) return;
 
-            Brep brepB = null;
-            if (!DA.GetData(4, ref brepB)) return;
-
             int indexA = 0;
             DA.GetData(1, ref indexA);
 
-            int indexB = 0;
-            DA.GetData(5, ref indexB);
+            int typeA = 2;
+            DA.GetData(2, ref typeA);
 
             Interval domainA = new Interval(0, 1);
-            DA.GetData(2, ref domainA);
+            DA.GetData(3, ref domainA);
 
-            Interval domainB = new Interval(0, 1);
-            DA.GetData(6, ref domainB);
+            bool flipA = true;
+            DA.GetData(4, ref flipA);
 
-            int typeA = 2;
-            DA.GetData(3, ref typeA);
+            Brep brepB = null;
+            if (!DA.GetData(5, ref brepB)) return;
+
+            int indexB = 0;
+            DA.GetData(6, ref indexB);
 
             int typeB = 2;
-            DA.GetData(7, ref typeA);
+            DA.GetData(7, ref typeB);
+
+            Interval domainB = new Interval(0, 1);
+            DA.GetData(8, ref domainB);
+
+            bool flipB = false;
+            DA.GetData(9, ref flipB);
 
             BrepEdge edgeA = brepA.Edges[indexA];
             BrepFace faceA = brepA.Faces[edgeA.AdjacentFaces()[0]];
@@ -102,7 +112,7 @@ namespace SurfacePlus.Freeform
             BrepFace faceB = brepB.Faces[edgeB.AdjacentFaces()[0]];
             Interval domB = domainB.Remap(edgeB.Domain);
 
-            List<Brep> breps = Brep.CreateBlendSurface(faceA, edgeA,domA, false, (BlendContinuity)typeA, faceB, edgeB,domB, false, (BlendContinuity)typeB).ToList();
+            List<Brep> breps = Brep.CreateBlendSurface(faceA, edgeA,domA, flipA, (BlendContinuity)typeA, faceB, edgeB,domB, flipB, (BlendContinuity)typeB).ToList();
 
             DA.SetDataList(0, breps);
         }

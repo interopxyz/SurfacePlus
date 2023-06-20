@@ -1,19 +1,24 @@
 ﻿using Grasshopper.Kernel;
+using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus
+namespace SurfacePlus.Panels
 {
-    public class Rebuild : GH_Component
+    public abstract class Panel__BaseType : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the Rebuild class.
+        /// Initializes a new instance of the Panel__Base class.
         /// </summary>
-        public Rebuild()
-          : base("Rebuild", "Rebuild",
-              "Rebuild a Surface in the U and V direction",
-              Constants.CatSurface, Constants.SubUtilities)
+        public Panel__BaseType()
+          : base("Panel__Base", "Nickname",
+              "Description",
+              "Category", "Subcategory")
+        {
+        }
+
+        public Panel__BaseType(string Name, string NickName, string Description, string Category, string Subcategory) : base(Name, NickName, Description, Category, Subcategory)
         {
         }
 
@@ -23,15 +28,16 @@ namespace SurfacePlus
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
-            pManager.AddIntegerParameter("Degree U", "U", "The new degree in the U direction", GH_ParamAccess.item);
+            pManager[0].Optional = false;
+            pManager.AddIntegerParameter("Panel Types", "T", "Geometry type of the resulting panels", GH_ParamAccess.item, 0);
             pManager[1].Optional = true;
-            pManager.AddIntegerParameter("Degree V", "V", "The new degree in the V direction", GH_ParamAccess.item);
-            pManager[2].Optional = true;
-            pManager.AddIntegerParameter("Count U", "A", "The new control point count in the U direction", GH_ParamAccess.item);
-            pManager[3].Optional = true;
-            pManager.AddIntegerParameter("Count V", "B", "The new control point count in the V direction", GH_ParamAccess.item); 
-            pManager[4].Optional = true;
 
+
+            Param_Integer paramA = (Param_Integer)pManager[1];
+            foreach (PanelTypes value in Enum.GetValues(typeof(PanelTypes)))
+            {
+                paramA.AddNamedValue(value.ToString(), (int)value);
+            }
         }
 
         /// <summary>
@@ -39,7 +45,7 @@ namespace SurfacePlus
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Output, GH_ParamAccess.item);
+            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Outputs, GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -48,26 +54,6 @@ namespace SurfacePlus
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            Surface surface = null;
-            if (!DA.GetData(0, ref surface)) return;
-
-            NurbsSurface surface1 = surface.ToNurbsSurface();
-
-            int Ud = 3;
-            DA.GetData(1, ref Ud);
-
-            int Vd = 3;
-            DA.GetData(2, ref Vd);
-
-            int Up = 4;
-            DA.GetData(3, ref Up);
-
-            int Vp = 4;
-            DA.GetData(4, ref Vp);
-
-            NurbsSurface surface2 = surface1.Rebuild(Ud,Vd,Up,Vp);
-
-            DA.SetData(0, surface2);
         }
 
         /// <summary>
@@ -88,7 +74,7 @@ namespace SurfacePlus
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("3b437761-edd2-4aa4-9d3e-000d41a499fb"); }
+            get { return new Guid("84687cb0-e8ef-42c4-b1a8-7f68f0705b89"); }
         }
     }
 }

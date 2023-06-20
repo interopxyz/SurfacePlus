@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 namespace SurfacePlus.Freeform
 {
-    public class CurveOnSurface : GH_Component
+    public class EdgeSurface : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the CurveOnSurface class.
+        /// Initializes a new instance of the QuadSurface class.
         /// </summary>
-        public CurveOnSurface()
-          : base("Curve on Surface", "Crv Srf",
-              "Draws a curve on a surface from 2D Point Coordinates",
-              Constants.CatCurve, "Spline")
+        public EdgeSurface()
+          : base("Perimeter Surface", "Per Srf",
+              "Create a Surface from a closed curve with 3 or 4 control points",
+              Constants.CatSurface, Constants.SubFreeform)
         {
         }
 
@@ -22,12 +22,8 @@ namespace SurfacePlus.Freeform
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
-            pManager[0].Optional = false;
-            pManager.AddPointParameter("Points", "P", "3d Points", GH_ParamAccess.item);
-            pManager[1].Optional = true;
-            pManager.AddNumberParameter("Tolerance", "D", "Tolerance", GH_ParamAccess.item, 0.001);
-            pManager[2].Optional = true;
+            pManager.AddCurveParameter("Curve", "C", "A curve with 3 or 4 control points", GH_ParamAccess.item);
+
         }
 
         /// <summary>
@@ -35,7 +31,7 @@ namespace SurfacePlus.Freeform
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddCurveParameter("Curve", "C", "Curve on Surface", GH_ParamAccess.item);
+            pManager.AddSurfaceParameter("Surface", "S", "The resulting surface", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -44,21 +40,18 @@ namespace SurfacePlus.Freeform
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            Surface surface = null;
-            if (!DA.GetData(0, ref surface)) return;
+            Curve curve = null;
+            if (!DA.GetData(0, ref curve)) return;
 
-            NurbsSurface surface1 = surface.ToNurbsSurface();
+            NurbsCurve crv = curve.ToNurbsCurve();
 
-            List<Point3d> points = new List<Point3d>();
-            DA.GetDataList(1, points);
+            if (crv.TryGetSurface(out Surface surface))
+            {
+                DA.SetData(0, surface);
+            }
 
-            double tolerance = 0.001;
-            DA.GetData(2, ref tolerance);
-
-            NurbsCurve curve = surface1.InterpolatedCurveOnSurface(points, tolerance);
-
-            DA.SetData(0, curve);
         }
+
         /// <summary>
         /// Provides an Icon for the component.
         /// </summary>
@@ -77,7 +70,7 @@ namespace SurfacePlus.Freeform
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("676b8304-0e2d-4812-a606-03326630a5bc"); }
+            get { return new Guid("9a18b68a-e396-46d7-b103-417ae643a0ba"); }
         }
     }
 }

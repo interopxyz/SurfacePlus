@@ -69,8 +69,15 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Freeform\BlendCurve.cs" />
     <Compile Include="Freeform\CurveOnSurface.cs" />
+    <Compile Include="Freeform\ExtendCrvSrf.cs" />
     <Compile Include="Freeform\FitSurface.cs" />
     <Compile Include="Freeform\BlendSurface.cs" />
+    <Compile Include="Freeform\EdgeSurface.cs" />
+    <Compile Include="Freeform\OffsetCurve.cs" />
+    <Compile Include="Panels\Panel__BaseStrips.cs" />
+    <Compile Include="Panels\Panel_Strips.cs" />
+    <Compile Include="Panels\Panel__BaseGrid.cs" />
+    <Compile Include="Panels\Panel__BaseType.cs" />
     <Compile Include="Primitive\BaseballSphere.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -80,6 +87,7 @@
     <Compile Include="SurfacePlusInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities.cs" />
+    <Compile Include="Utils\CloseSurface.cs" />
     <Compile Include="Utils\Extend.cs" />
     <Compile Include="Utils\JoinBrep.cs" />
     <Compile Include="Utils\MakePeriodic.cs" />
@@ -110,6 +118,7 @@
   <ItemGroup>
     <None Include="Resources\SurfacePlus_Logo_16.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
