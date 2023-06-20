@@ -3,17 +3,17 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus
+namespace SurfacePlus.Freeform
 {
-    public class Shrink : GH_Component
+    public class FromQuad : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the MyComponent1 class.
+        /// Initializes a new instance of the FromQuad class.
         /// </summary>
-        public Shrink()
-          : base("Shrink Surface", "Shrink",
+        public FromQuad()
+          : base("FromQuad", "Nickname",
               "Description",
-              Constants.CatSurface, Constants.SubUtilities)
+              "Category", "Subcategory")
         {
         }
 
@@ -22,7 +22,6 @@ namespace SurfacePlus
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -30,7 +29,6 @@ namespace SurfacePlus
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Output, GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -39,15 +37,6 @@ namespace SurfacePlus
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            Surface surface = null;
-            if (!DA.GetData(0, ref surface)) return;
-
-            Brep brep = Brep.CreateFromSurface(surface);
-            brep.Faces[0].ShrinkSurfaceToEdge();
-
-            Surface surface1 = brep.Faces[0].UnderlyingSurface();
-            
-            DA.SetData(0, surface1);
         }
 
         /// <summary>
@@ -68,7 +57,7 @@ namespace SurfacePlus
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("be5ee4e7-8758-4288-9704-781acff6bc74"); }
+            get { return new Guid("1fae2772-b728-4ad3-817f-ef9b852a7075"); }
         }
     }
 }

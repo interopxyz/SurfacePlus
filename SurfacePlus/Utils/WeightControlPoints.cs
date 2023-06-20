@@ -2,17 +2,18 @@
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace SurfacePlus
+namespace SurfacePlus.Utils
 {
-    public class Rebuild : GH_Component
+    public class WeightControlPoints : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the Rebuild class.
+        /// Initializes a new instance of the WeightControlPoints class.
         /// </summary>
-        public Rebuild()
-          : base("Rebuild", "Rebuild",
-              "Description",
+        public WeightControlPoints()
+          : base("Weight Control Points", "Weight",
+              "Weight control points of a surface",
               Constants.CatSurface, Constants.SubUtilities)
         {
         }
@@ -23,15 +24,11 @@ namespace SurfacePlus
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
-            pManager.AddIntegerParameter("Degree U", "U", "The new degree in the U direction", GH_ParamAccess.item);
-            pManager[1].Optional = true;
-            pManager.AddIntegerParameter("Degree V", "V", "The new degree in the V direction", GH_ParamAccess.item);
+            pManager[0].Optional = false;
+            pManager.AddIntegerParameter("Indices", "I", "Control point indices", GH_ParamAccess.list);
+            pManager[1].Optional = false;
+            pManager.AddNumberParameter("Weights", "W", "Control point weights corresponding to each index", GH_ParamAccess.list);
             pManager[2].Optional = true;
-            pManager.AddIntegerParameter("Count U", "A", "The new control point count in the U direction", GH_ParamAccess.item);
-            pManager[3].Optional = true;
-            pManager.AddIntegerParameter("Count V", "B", "The new control point count in the V direction", GH_ParamAccess.item); 
-            pManager[4].Optional = true;
-
         }
 
         /// <summary>
@@ -40,6 +37,7 @@ namespace SurfacePlus
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Output, GH_ParamAccess.item);
+            pManager.AddPointParameter("P", "P", "P", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -52,22 +50,37 @@ namespace SurfacePlus
             if (!DA.GetData(0, ref surface)) return;
 
             NurbsSurface surface1 = surface.ToNurbsSurface();
+            surface1.MakeRational();
+            int c = surface1.Points.CountU;
 
-            int Ud = 3;
-            DA.GetData(1, ref Ud);
+            List<int> indices = new List<int>();
+            if (!DA.GetDataList(1, indices)) return;
 
-            int Vd = 3;
-            DA.GetData(2, ref Vd);
+            List<double> weights = new List<double>();
+            DA.GetDataList(2, weights);
+            if (weights.Count < 1) weights.Add(0.5);
 
-            int Up = 4;
-            DA.GetData(3, ref Up);
+            weights.AddRange(Enumerable.Repeat(weights[weights.Count - 1], indices.Count - weights.Count).ToList());
 
-            int Vp = 4;
-            DA.GetData(4, ref Vp);
+            List<Point3d> points = new List<Point3d>();
+            for (int i=0;i < indices.Count;i++)
+            { 
+                int index = indices[i];
+            double weight = weights[i];
 
-            NurbsSurface surface2 = surface1.Rebuild(Ud,Vd,Up,Vp);
+            int v = (int)Math.Floor((double)index / (double)c);
+            int u = index - v*c;
+                Point3d p = surface1.Points.GetControlPoint(u,v).Location;
+                ControlPoint cp = new ControlPoint(p.X* weight, p.Y* weight, p.Z* weight, weight);
+                surface1.Points.SetControlPoint(u,v, cp);
+            }
 
-            DA.SetData(0, surface2);
+            foreach (ControlPoint pt in surface1.Points)
+            {
+                points.Add(pt.Location);
+            }
+            DA.SetData(0, surface1);
+            DA.SetDataList(1, points);
         }
 
         /// <summary>
@@ -88,7 +101,7 @@ namespace SurfacePlus
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("3b437761-edd2-4aa4-9d3e-000d41a499fb"); }
+            get { return new Guid("d07031cc-95f2-4730-8054-1df81be1f007"); }
         }
     }
 }
