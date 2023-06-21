@@ -91,8 +91,9 @@ namespace SurfacePlus
             NurbsSurface surface = input.Unitize();
             List<Surface> surfaces = new List<Surface>();
 
-            int x = 1 - (int)direction;
-            List<double> t = surface.IsoCurve(x, 0).DivideByCount(count, false).ToList();
+            int x = (int)direction;
+            Curve isocurve = surface.IsoCurve(x, 0);
+            List<double> t = isocurve.DivideByCount(count, false).ToList();
 
             for (int i = 0; i < count - 1; i++)
             {
@@ -119,8 +120,9 @@ namespace SurfacePlus
             NurbsSurface surface = input.Unitize();
             List<Surface> surfaces = new List<Surface>();
 
-            int x = 1 - (int)direction;
-            List<double> t = surface.IsoCurve(x, 0).DivideByCount(count, false).ToList();
+            int x = (int)direction;
+            Curve isocurve = surface.IsoCurve(x, 0);
+            List<double> t = isocurve.DivideByCount(count, false).ToList();
 
             for (int i = 0; i < count - 1; i++)
             {
@@ -147,8 +149,9 @@ namespace SurfacePlus
             NurbsSurface surface = input.Unitize();
             List<Surface> surfaces = new List<Surface>();
 
-            int x = 1 - (int)direction;
-            List<double> t = surface.IsoCurve(x, 0).DivideByCount(count, false).ToList();
+            int x = (int)direction;
+            Curve isocurve = surface.IsoCurve(x, 0);
+            List<double> t = isocurve.DivideByCount(count, false).ToList();
 
             for (int i = 0; i < count - 1; i++)
             {
@@ -179,7 +182,8 @@ namespace SurfacePlus
             List<Surface> surfaces = new List<Surface>();
 
             int x = (int)direction;
-            List<double> t = surface.IsoCurve(x, 0).DivideByCount(count, false).ToList();
+            Curve isocurve = surface.IsoCurve(x, 0);
+            List<double> t = isocurve.DivideByCount(count, false).ToList();
 
             for (int i = 0; i < count - 1; i++)
             {
@@ -192,6 +196,58 @@ namespace SurfacePlus
 
             return surfaces;
         }
+
+        public static List<Surface> CornerQuads(this Surface input, SurfaceDirection direction, int countU, int countV)
+        {
+            NurbsSurface surface = input.Unitize();
+            List<Surface> surfaces = new List<Surface>();
+
+            int x = (int)direction;
+            Curve isocurve = surface.IsoCurve(x, 0);
+
+            List<double> u = isocurve.DivideByCount(countU-1, true).ToList();
+
+            for (int i = 1; i < countU; i++)
+            {
+                Curve crvA = surface.IsoCurve(1-x, u[i-1]);
+                Curve crvB = surface.IsoCurve(1-x, u[i]);
+                List<double> va = crvA.DivideByCount(countV, true).ToList();
+                List<double> vb = crvB.DivideByCount(countV, true).ToList();
+                for (int j = 1; j < countV+1; j++) surfaces.Add(NurbsSurface.CreateFromCorners(crvA.PointAt(va[j - 1]), crvA.PointAt(va[j]), crvB.PointAt(vb[j]), crvB.PointAt(vb[j - 1])));
+            }
+
+            return surfaces;
+        }
+        public static List<Surface> LoftQuads(this Surface input, SurfaceDirection direction, int countU, int countV)
+        {
+            NurbsSurface surface = input.Unitize();
+            List<Surface> surfaces = new List<Surface>();
+
+            int x = (int)direction;
+            Curve isocurve = surface.IsoCurve(x, 0);
+
+            List<double> u = isocurve.DivideByCount(countU - 1, true).ToList();
+
+            for (int i = 1; i < countU; i++)
+            {
+                Curve crvA = surface.IsoCurve(1 - x, u[i - 1]);
+                Curve crvB = surface.IsoCurve(1 - x, u[i]);
+                List<double> va = crvA.DivideByCount(countV, true).ToList();
+                Curve[] crvsA = crvA.Split(va);
+                List<double> vb = crvB.DivideByCount(countV, true).ToList();
+                Curve[] crvsB = crvB.Split(vb);
+                for (int j = 0; j < countV; j++)
+                {
+                    surfaces.Add(Brep.CreateFromLoft(new Curve[] { crvsA[j], crvsB[j] }, Point3d.Unset, Point3d.Unset, LoftType.Straight,false)[0].Surfaces[0]);
+                }
+            }
+
+            return surfaces;
+        }
+
+        #endregion
+
+        #region division
 
         public static List<Curve> IsoCurves(this Surface input, SurfaceDirection direction, int count)
         {
@@ -216,7 +272,7 @@ namespace SurfacePlus
 
             int x = 1 - (int)direction;
             Curve isocurve = surface.IsoCurve(1 - x, 0);
-            curves.Add(isocurve);
+            //curves.Add(isocurve);
 
             List<double> t = isocurve.DivideByCount(count, true).ToList();
 
@@ -228,18 +284,36 @@ namespace SurfacePlus
             return curves;
         }
 
-        public static List<Curve> DivideLength(this Surface input, SurfaceDirection direction, double parameter, double length)
+        public static List<Curve> DivideLength(this Surface input, SurfaceDirection direction, Point3d parameter, double length)
         {
             NurbsSurface surface = input.Unitize();
             List<Curve> curves = new List<Curve>();
 
             int x = 1 - (int)direction;
-            Curve isocurve = surface.IsoCurve(1 - x, parameter);
-            curves.Add(isocurve);
+            Curve isocurve = surface.IsoCurve(1 - x, parameter.X);
+            //curves.Add(isocurve);
 
-            List<double> t = isocurve.DivideByLength(length, true).ToList();
+            List<double> t = new List<double>();
+
+            if (parameter.Y <= 0)
+            {
+                t = isocurve.DivideByLength(length, true).ToList();
+            }
+            else if (parameter.Y >= 0)
+            {
+                isocurve.Reverse();
+                 t = isocurve.DivideByLength(length, true).ToList();
+            }
+            else
+            {
+            Curve[] subcurves = isocurve.Split(parameter.Y);
+                double[] a = subcurves[0].DivideByLength(length,false);
+                Array.Reverse(a);
+                t.AddRange(a);
+                t.AddRange(subcurves[0].DivideByLength(length, true));
+            }
+
             int count = t.Count;
-
 
             for (int i = 0; i < count; i++)
             {
@@ -249,16 +323,17 @@ namespace SurfacePlus
             return curves;
         }
 
-        public static List<Curve> DivideSpan(this Surface input, SurfaceDirection direction, double parameter, double length)
+        public static List<Curve> DivideSpan(this Surface input, SurfaceDirection direction, double parameter, double length, bool below)
         {
             NurbsSurface surface = input.Unitize();
             List<Curve> curves = new List<Curve>();
 
             int x = 1 - (int)direction;
             Curve isocurve = surface.IsoCurve(1 - x, parameter);
-            curves.Add(isocurve);
+            //curves.Add(isocurve);
 
             int count = isocurve.DivideByLength(length,false).ToList().Count();
+            if (below) count += 1;
             List<double> t = isocurve.DivideByCount(count, true).ToList();
 
             for (int i = 0; i < count; i++)

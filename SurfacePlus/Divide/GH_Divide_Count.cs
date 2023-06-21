@@ -6,16 +6,24 @@ using System.Collections.Generic;
 
 namespace SurfacePlus.Divide
 {
-    public class DivideCount : Divide__Base
+    public class GH_Divide_Count : GH_Divide__Base
     {
         /// <summary>
         /// Initializes a new instance of the DivideCount class.
         /// </summary>
-        public DivideCount()
+        public GH_Divide_Count()
           : base("Divide Count", "Div Count",
               "Divide a surface into evenly spaced isocurve spans by count",
               Constants.CatSurface, Constants.SubDivide)
         {
+        }
+
+        /// <summary>
+        /// Set Exposure level for the component.
+        /// </summary>
+        public override GH_Exposure Exposure
+        {
+            get { return GH_Exposure.primary; }
         }
 
         /// <summary>

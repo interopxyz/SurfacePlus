@@ -1,23 +1,24 @@
 ﻿using Grasshopper.Kernel;
+using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
 namespace SurfacePlus.Panels
 {
-    public abstract class Panel__BaseGrid : Panel__BaseType
+    public abstract class GH_Panel__BaseType : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the Panel__BaseGrid class.
+        /// Initializes a new instance of the Panel__Base class.
         /// </summary>
-        public Panel__BaseGrid()
-          : base("Panel__BaseGrid", "Nickname",
+        public GH_Panel__BaseType()
+          : base("Panel__Base", "Nickname",
               "Description",
               "Category", "Subcategory")
         {
         }
 
-        public Panel__BaseGrid(string Name, string NickName, string Description, string Category, string Subcategory) : base(Name, NickName, Description, Category, Subcategory)
+        public GH_Panel__BaseType(string Name, string NickName, string Description, string Category, string Subcategory) : base(Name, NickName, Description, Category, Subcategory)
         {
         }
 
@@ -26,11 +27,17 @@ namespace SurfacePlus.Panels
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            base.RegisterInputParams(pManager);
-            pManager.AddIntegerParameter("U Divisions", "U", "Division count in the U direction", GH_ParamAccess.item, 4);
-            pManager[2].Optional = true;
-            pManager.AddIntegerParameter("V Divisions", "V", "Division count in the U direction", GH_ParamAccess.item, 4);
-            pManager[3].Optional = true;
+            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
+            pManager[0].Optional = false;
+            pManager.AddIntegerParameter("Panel Types", "T", "Geometry type of the resulting panels", GH_ParamAccess.item, 0);
+            pManager[1].Optional = true;
+
+
+            Param_Integer paramA = (Param_Integer)pManager[1];
+            foreach (PanelTypes value in Enum.GetValues(typeof(PanelTypes)))
+            {
+                paramA.AddNamedValue(value.ToString(), (int)value);
+            }
         }
 
         /// <summary>
@@ -38,7 +45,7 @@ namespace SurfacePlus.Panels
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            base.RegisterOutputParams(pManager);
+            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Outputs, GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -67,7 +74,7 @@ namespace SurfacePlus.Panels
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("a7ccf4f8-3926-46e0-99d0-33e325044004"); }
+            get { return new Guid("84687cb0-e8ef-42c4-b1a8-7f68f0705b89"); }
         }
     }
 }

@@ -1,25 +1,28 @@
 ﻿using Grasshopper.Kernel;
-using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Panels
+namespace SurfacePlus.Divide
 {
-    public abstract class Panel__BaseType : GH_Component
+    public class GH_Divide_Length : GH_Divide__Base
     {
         /// <summary>
-        /// Initializes a new instance of the Panel__Base class.
+        /// Initializes a new instance of the DivideLength class.
         /// </summary>
-        public Panel__BaseType()
-          : base("Panel__Base", "Nickname",
+        public GH_Divide_Length()
+          : base("Divide Length", "Div Len",
               "Description",
-              "Category", "Subcategory")
+              Constants.CatSurface, Constants.SubDivide)
         {
         }
 
-        public Panel__BaseType(string Name, string NickName, string Description, string Category, string Subcategory) : base(Name, NickName, Description, Category, Subcategory)
+        /// <summary>
+        /// Set Exposure level for the component.
+        /// </summary>
+        public override GH_Exposure Exposure
         {
+            get { return GH_Exposure.secondary; }
         }
 
         /// <summary>
@@ -27,17 +30,11 @@ namespace SurfacePlus.Panels
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
-            pManager[0].Optional = false;
-            pManager.AddIntegerParameter("Panel Types", "T", "Geometry type of the resulting panels", GH_ParamAccess.item, 0);
-            pManager[1].Optional = true;
-
-
-            Param_Integer paramA = (Param_Integer)pManager[1];
-            foreach (PanelTypes value in Enum.GetValues(typeof(PanelTypes)))
-            {
-                paramA.AddNamedValue(value.ToString(), (int)value);
-            }
+            base.RegisterInputParams(pManager);
+            pManager.AddPointParameter("Parameter", "P", "The unitized surface parameter for division", GH_ParamAccess.item, new Point3d(0.5, 0.5, 0));
+            pManager[2].Optional = true;
+            pManager.AddNumberParameter("Length", "L", "The target segment length", GH_ParamAccess.item, 1.0);
+            pManager[3].Optional = true;
         }
 
         /// <summary>
@@ -45,7 +42,7 @@ namespace SurfacePlus.Panels
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Outputs, GH_ParamAccess.list);
+            base.RegisterOutputParams(pManager);
         }
 
         /// <summary>
@@ -54,6 +51,20 @@ namespace SurfacePlus.Panels
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            Surface surface = null;
+            if (!DA.GetData(0, ref surface)) return;
+            NurbsSurface surface1 = surface.ToNurbsSurface();
+
+            int direction = 0;
+            DA.GetData(1, ref direction);
+
+            Point3d p = new Point3d(0.5,0.5,0);
+            DA.GetData(2, ref p);
+
+            double d = 1.0;
+            DA.GetData(3, ref d);
+
+            DA.SetDataList(0, surface1.DivideLength((SurfaceDirection)direction, p, d));
         }
 
         /// <summary>
@@ -74,7 +85,7 @@ namespace SurfacePlus.Panels
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("84687cb0-e8ef-42c4-b1a8-7f68f0705b89"); }
+            get { return new Guid("51ce2d48-136f-4cc7-93b2-abcc49505cc4"); }
         }
     }
 }

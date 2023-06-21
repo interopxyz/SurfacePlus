@@ -5,16 +5,24 @@ using System.Collections.Generic;
 
 namespace SurfacePlus.Divide
 {
-    public class DivideSpan : Divide__Base
+    public class GH_Divide_Span : GH_Divide__Base
     {
         /// <summary>
         /// Initializes a new instance of the DivideSpan class.
         /// </summary>
-        public DivideSpan()
+        public GH_Divide_Span()
           : base("DivideSpan", "Nickname",
               "Description",
               Constants.CatSurface, Constants.SubDivide)
         {
+        }
+
+        /// <summary>
+        /// Set Exposure level for the component.
+        /// </summary>
+        public override GH_Exposure Exposure
+        {
+            get { return GH_Exposure.secondary; }
         }
 
         /// <summary>
@@ -27,6 +35,8 @@ namespace SurfacePlus.Divide
             pManager[2].Optional = true;
             pManager.AddNumberParameter("Span Length", "S", "The target span length", GH_ParamAccess.item, 1.0);
             pManager[3].Optional = true;
+            pManager.AddBooleanParameter("Below", "B", "If true, the span length will always stay below the length, if false, above", GH_ParamAccess.item, false);
+            pManager[4].Optional = true;
         }
 
         /// <summary>
@@ -56,7 +66,10 @@ namespace SurfacePlus.Divide
             double d = 1.0;
             DA.GetData(3, ref d);
 
-            DA.SetDataList(0, surface1.DivideSpan((SurfaceDirection)direction, t,d));
+            bool isBelow = false;
+            DA.GetData(4, ref isBelow);
+
+            DA.SetDataList(0, surface1.DivideSpan((SurfaceDirection)direction, t,d, isBelow));
         }
 
         /// <summary>

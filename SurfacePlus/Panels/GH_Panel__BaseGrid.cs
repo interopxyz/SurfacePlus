@@ -6,19 +6,19 @@ using System.Collections.Generic;
 
 namespace SurfacePlus.Panels
 {
-    public abstract class Panel__BaseStrips : Panel__BaseType
+    public abstract class GH_Panel__BaseGrid : GH_Panel__BaseType
     {
         /// <summary>
-        /// Initializes a new instance of the Panel_BaseStrips class.
+        /// Initializes a new instance of the Panel__BaseGrid class.
         /// </summary>
-        public Panel__BaseStrips()
-          : base("Panel_BaseStrips", "Nickname",
+        public GH_Panel__BaseGrid()
+          : base("Panel__BaseGrid", "Nickname",
               "Description",
               "Category", "Subcategory")
         {
         }
 
-        public Panel__BaseStrips(string Name, string NickName, string Description, string Category, string Subcategory) : base(Name, NickName, Description, Category, Subcategory)
+        public GH_Panel__BaseGrid(string Name, string NickName, string Description, string Category, string Subcategory) : base(Name, NickName, Description, Category, Subcategory)
         {
         }
 
@@ -30,8 +30,10 @@ namespace SurfacePlus.Panels
             base.RegisterInputParams(pManager);
             pManager.AddIntegerParameter("Direction", "D", "The direction of the primary division", GH_ParamAccess.item, 0);
             pManager[2].Optional = true;
-            pManager.AddIntegerParameter("Count", "C", "The primary division count", GH_ParamAccess.item, 4);
+            pManager.AddIntegerParameter("U Divisions", "U", "Division count in the U direction", GH_ParamAccess.item, 4);
             pManager[3].Optional = true;
+            pManager.AddIntegerParameter("V Divisions", "V", "Division count in the U direction", GH_ParamAccess.item, 4);
+            pManager[4].Optional = true;
 
             Param_Integer paramA = (Param_Integer)pManager[2];
             paramA.AddNamedValue("U", 0);
@@ -72,7 +74,7 @@ namespace SurfacePlus.Panels
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("61bf0bc3-b9cc-4886-b490-a298312f604f"); }
+            get { return new Guid("a7ccf4f8-3926-46e0-99d0-33e325044004"); }
         }
     }
 }

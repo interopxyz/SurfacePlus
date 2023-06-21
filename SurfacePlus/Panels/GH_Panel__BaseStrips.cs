@@ -4,21 +4,21 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Divide
+namespace SurfacePlus.Panels
 {
-    public abstract class Divide__Base : GH_Component
+    public abstract class GH_Panel__BaseStrips : GH_Panel__BaseType
     {
         /// <summary>
-        /// Initializes a new instance of the Divide_Base class.
+        /// Initializes a new instance of the Panel_BaseStrips class.
         /// </summary>
-        public Divide__Base()
-          : base("Divide_Base", "Nickname",
+        public GH_Panel__BaseStrips()
+          : base("Panel_BaseStrips", "Nickname",
               "Description",
               "Category", "Subcategory")
         {
         }
 
-        public Divide__Base(string Name, string NickName, string Description, string Category, string Subcategory) : base(Name, NickName, Description, Category, Subcategory)
+        public GH_Panel__BaseStrips(string Name, string NickName, string Description, string Category, string Subcategory) : base(Name, NickName, Description, Category, Subcategory)
         {
         }
 
@@ -27,12 +27,13 @@ namespace SurfacePlus.Divide
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
-            pManager[0].Optional = false;
+            base.RegisterInputParams(pManager);
             pManager.AddIntegerParameter("Direction", "D", "The direction of the primary division", GH_ParamAccess.item, 0);
-            pManager[1].Optional = true;
+            pManager[2].Optional = true;
+            pManager.AddIntegerParameter("Count", "C", "The primary division count", GH_ParamAccess.item, 4);
+            pManager[3].Optional = true;
 
-            Param_Integer paramA = (Param_Integer)pManager[1];
+            Param_Integer paramA = (Param_Integer)pManager[2];
             paramA.AddNamedValue("U", 0);
             paramA.AddNamedValue("V", 1);
         }
@@ -42,7 +43,7 @@ namespace SurfacePlus.Divide
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddCurveParameter(Constants.Curve.Name, Constants.Curve.NickName, Constants.Curve.Outputs, GH_ParamAccess.list);
+            base.RegisterOutputParams(pManager);
         }
 
         /// <summary>
@@ -71,7 +72,7 @@ namespace SurfacePlus.Divide
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("12ed733b-4900-4074-a2c2-7f55333cd1ea"); }
+            get { return new Guid("61bf0bc3-b9cc-4886-b490-a298312f604f"); }
         }
     }
 }

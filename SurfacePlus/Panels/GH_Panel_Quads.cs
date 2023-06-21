@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace SurfacePlus.Panels
 {
-    public class Panel_Strips : Panel__BaseStrips
+    public class GH_Panel_Quads : GH_Panel__BaseGrid
     {
         /// <summary>
-        /// Initializes a new instance of the Panel_Strips class.
+        /// Initializes a new instance of the GH_Panels_Quads class.
         /// </summary>
-        public Panel_Strips()
-          : base("Panel Strips", "Strips",
-              "Divide a surface into a series of Strips",
+        public GH_Panel_Quads()
+          : base("Panel Quads", "Quads",
+              "Divide a surface into a series of Quads",
               Constants.CatSurface, Constants.SubSubdivide)
         {
         }
@@ -50,25 +50,36 @@ namespace SurfacePlus.Panels
             int direction = 0;
             DA.GetData(2, ref direction);
 
-            int count = 4;
-            DA.GetData(3, ref count);
+            int u = 4;
+            DA.GetData(3, ref u);
+            u = Math.Max(1, u);
 
+            int v = 4;
+            DA.GetData(4, ref v);
+            v = Math.Max(1, v);
+
+            int reverse = 1 - direction;
+            List<Surface> surfaces= new List<Surface>();
+            List<Surface> outputs = new List<Surface>();
             switch ((PanelTypes)type)
             {
                 case PanelTypes.Corner:
-                    DA.SetDataList(0, surface1.CornerStrips((SurfaceDirection)direction, count));
+                    surfaces = surface1.CornerQuads((SurfaceDirection)direction, u,v);
                     break;
                 case PanelTypes.Loft:
-                    DA.SetDataList(0, surface1.LoftStrips((SurfaceDirection)direction, count));
+                    surfaces = surface1.LoftQuads((SurfaceDirection)direction, u,v);
                     break;
                 case PanelTypes.Edge:
-                    DA.SetDataList(0, surface1.EdgeStrips((SurfaceDirection)direction, count));
+                    surfaces = surface1.EdgeStrips((SurfaceDirection)direction, u);
+                    foreach (Surface srf in surfaces) outputs.AddRange(srf.EdgeStrips((SurfaceDirection)reverse, v));
                     break;
                 case PanelTypes.Split:
-            DA.SetDataList(0, surface1.SplitStrips((SurfaceDirection)direction, count));
+                    surfaces = surface1.SplitStrips((SurfaceDirection)direction, u);
+                    foreach (Surface srf in surfaces) outputs.AddRange(srf.SplitStrips((SurfaceDirection)reverse, v));
                     break;
             }
-    }
+            DA.SetDataList(0, surfaces);
+        }
 
         /// <summary>
         /// Provides an Icon for the component.
@@ -88,7 +99,7 @@ namespace SurfacePlus.Panels
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("73d78964-167f-4006-bf8e-fd008071a8f9"); }
+            get { return new Guid("cafcf875-8db6-4098-b547-dff1b86d81b0"); }
         }
     }
 }

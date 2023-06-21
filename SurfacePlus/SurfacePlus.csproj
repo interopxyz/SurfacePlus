@@ -67,11 +67,11 @@
     <Compile Include="Analysis\SurfaceDomain.cs" />
     <Compile Include="Analysis\SurfaceSpans.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Divide\DivideCount.cs" />
-    <Compile Include="Divide\DivideLength.cs" />
-    <Compile Include="Divide\DivideSpan.cs" />
-    <Compile Include="Divide\Divide__Base.cs" />
-    <Compile Include="Divide\Isocurves.cs" />
+    <Compile Include="Divide\GH_Divide_Count.cs" />
+    <Compile Include="Divide\GH_Divide_Length.cs" />
+    <Compile Include="Divide\GH_Divide_Span.cs" />
+    <Compile Include="Divide\GH_Divide__Base.cs" />
+    <Compile Include="Divide\GH_Divide_Isocurves.cs" />
     <Compile Include="Freeform\BlendCurve.cs" />
     <Compile Include="Freeform\CurveOnSurface.cs" />
     <Compile Include="Freeform\ExtendCrvSrf.cs" />
@@ -79,10 +79,11 @@
     <Compile Include="Freeform\BlendSurface.cs" />
     <Compile Include="Freeform\EdgeSurface.cs" />
     <Compile Include="Freeform\OffsetCurve.cs" />
-    <Compile Include="Panels\Panel__BaseStrips.cs" />
-    <Compile Include="Panels\Panel_Strips.cs" />
-    <Compile Include="Panels\Panel__BaseGrid.cs" />
-    <Compile Include="Panels\Panel__BaseType.cs" />
+    <Compile Include="Panels\GH_Panel_Quads.cs" />
+    <Compile Include="Panels\GH_Panel__BaseStrips.cs" />
+    <Compile Include="Panels\GH_Panel_Strips.cs" />
+    <Compile Include="Panels\GH_Panel__BaseGrid.cs" />
+    <Compile Include="Panels\GH_Panel__BaseType.cs" />
     <Compile Include="Primitive\BaseballSphere.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

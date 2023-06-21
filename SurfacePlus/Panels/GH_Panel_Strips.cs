@@ -3,17 +3,17 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Divide
+namespace SurfacePlus.Panels
 {
-    public class DivideLength : Divide__Base
+    public class GH_Panel_Strips : GH_Panel__BaseStrips
     {
         /// <summary>
-        /// Initializes a new instance of the DivideLength class.
+        /// Initializes a new instance of the Panel_Strips class.
         /// </summary>
-        public DivideLength()
-          : base("Divide Length", "Div Len",
-              "Description",
-              Constants.CatSurface, Constants.SubDivide)
+        public GH_Panel_Strips()
+          : base("Panel Strips", "Strips",
+              "Divide a surface into a series of Strips",
+              Constants.CatSurface, Constants.SubSubdivide)
         {
         }
 
@@ -23,10 +23,7 @@ namespace SurfacePlus.Divide
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
-            pManager.AddNumberParameter("Parameter", "P", "The unitized surface parameter for division", GH_ParamAccess.item, 0.5);
-            pManager[2].Optional = true;
-            pManager.AddNumberParameter("Length", "L", "The target segment length", GH_ParamAccess.item, 1.0);
-            pManager[3].Optional = true;
+
         }
 
         /// <summary>
@@ -47,17 +44,32 @@ namespace SurfacePlus.Divide
             if (!DA.GetData(0, ref surface)) return;
             NurbsSurface surface1 = surface.ToNurbsSurface();
 
+            int type = 0;
+            DA.GetData(1, ref type);
+
             int direction = 0;
-            DA.GetData(1, ref direction);
+            DA.GetData(2, ref direction);
 
-            double t = 0.5;
-            DA.GetData(2, ref t);
+            int count = 4;
+            DA.GetData(3, ref count);
+            count = Math.Max(count, 1);
 
-            double d = 1.0;
-            DA.GetData(3, ref d);
-
-            DA.SetDataList(0, surface1.DivideLength((SurfaceDirection)direction, t, d));
-        }
+            switch ((PanelTypes)type)
+            {
+                case PanelTypes.Corner:
+                    DA.SetDataList(0, surface1.CornerStrips((SurfaceDirection)direction, count));
+                    break;
+                case PanelTypes.Loft:
+                    DA.SetDataList(0, surface1.LoftStrips((SurfaceDirection)direction, count));
+                    break;
+                case PanelTypes.Edge:
+                    DA.SetDataList(0, surface1.EdgeStrips((SurfaceDirection)direction, count));
+                    break;
+                case PanelTypes.Split:
+            DA.SetDataList(0, surface1.SplitStrips((SurfaceDirection)direction, count));
+                    break;
+            }
+    }
 
         /// <summary>
         /// Provides an Icon for the component.
@@ -77,7 +89,7 @@ namespace SurfacePlus.Divide
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("51ce2d48-136f-4cc7-93b2-abcc49505cc4"); }
+            get { return new Guid("73d78964-167f-4006-bf8e-fd008071a8f9"); }
         }
     }
 }
