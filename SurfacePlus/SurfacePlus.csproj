@@ -67,6 +67,11 @@
     <Compile Include="Analysis\SurfaceDomain.cs" />
     <Compile Include="Analysis\SurfaceSpans.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Divide\DivideCount.cs" />
+    <Compile Include="Divide\DivideLength.cs" />
+    <Compile Include="Divide\DivideSpan.cs" />
+    <Compile Include="Divide\Divide__Base.cs" />
+    <Compile Include="Divide\Isocurves.cs" />
     <Compile Include="Freeform\BlendCurve.cs" />
     <Compile Include="Freeform\CurveOnSurface.cs" />
     <Compile Include="Freeform\ExtendCrvSrf.cs" />

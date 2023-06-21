@@ -50,6 +50,11 @@ namespace SurfacePlus
             get { return "Analysis"; }
         }
 
+        public static string SubDivide
+        {
+            get { return "Division"; }
+        }
+
         public static string SubFreeform
         {
             get { return "Freeform"; }
@@ -78,6 +83,11 @@ namespace SurfacePlus
         public static Descriptor Brep
         {
             get { return new Descriptor("Brep", "B", "A Surface or Polysurface", "A Surface or Polysurface", "Surfaces or Polysurfaces"); }
+        }
+
+        public static Descriptor Curve
+        {
+            get { return new Descriptor("Curve", "C", "A Curve", "Resulting Curve", "Resulting Curves"); }
         }
 
         #endregion
