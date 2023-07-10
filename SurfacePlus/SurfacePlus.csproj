@@ -63,6 +63,9 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Analysis\GH_IsoEdges.cs" />
+    <Compile Include="Components\Analysis\GH_IsSingular.cs" />
+    <Compile Include="Components\Analysis\GH_IsSurfaceClosed.cs" />
     <Compile Include="Components\Analysis\GH_SurfaceDegree.cs" />
     <Compile Include="Components\Analysis\GH_SurfaceDomain.cs" />
     <Compile Include="Components\Analysis\GH_SurfaceSpans.cs" />
@@ -73,6 +76,7 @@
     <Compile Include="Components\Freeform\Tiles\GH_Tile_Fan.cs" />
     <Compile Include="Components\Freeform\Tiles\GH_Tile_Stitch_Triangles.cs" />
     <Compile Include="Components\Freeform\Tiles\GH_Tile__Base.cs" />
+    <Compile Include="Components\GH_SurfaceSide.cs" />
     <Compile Include="Components\Grids\Curves\GH_Cells_Diamond_Quads.cs" />
     <Compile Include="Components\Grids\Curves\GH_Cells_Diamond_Triangles.cs" />
     <Compile Include="Components\Grids\Curves\GH_Cells_Hexagon.cs" />

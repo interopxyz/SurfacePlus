@@ -1,17 +1,16 @@
 ﻿using Grasshopper.Kernel;
-using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Utils
+namespace SurfacePlus.Components.Analysis
 {
-    public class GH_IsPeriodic : GH_Component
+    public class GH_IsSurfaceClosed : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the MakePeriodic class.
+        /// Initializes a new instance of the GH_IsSurfaceClosed class.
         /// </summary>
-        public GH_IsPeriodic()
+        public GH_IsSurfaceClosed()
           : base("Is Periodic", "Periodic",
               "Get or set if a surface periodic in one direction",
               Constants.CatSurface, Constants.SubAnalysis)
@@ -33,14 +32,6 @@ namespace SurfacePlus.Utils
         {
             pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
             pManager[0].Optional = false;
-            pManager.AddIntegerParameter("Direction", "D", "Set the U or V direction", GH_ParamAccess.item, 0);
-            pManager[1].Optional = true;
-            pManager.AddBooleanParameter("Smooth", "S", "If true, the resulting surfaces with be smoothed", GH_ParamAccess.item);
-            pManager[2].Optional = true;
-
-            Param_Integer paramA = (Param_Integer)pManager[1];
-            paramA.AddNamedValue("U", 0);
-            paramA.AddNamedValue("V", 1);
         }
 
         /// <summary>
@@ -48,8 +39,9 @@ namespace SurfacePlus.Utils
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Outputs, GH_ParamAccess.list);
-            pManager.AddBooleanParameter("Status", "S", "The status of the suface", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Solid", "S", "Is the surface a pseudo solid", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("U Direction", "U", "Is the surface closed in the U direction", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("V Direction", "V", "Is the surface closed in the V direction", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -63,17 +55,9 @@ namespace SurfacePlus.Utils
 
             NurbsSurface surface1 = surface.ToNurbsSurface();
 
-            int direction = 0;
-            DA.GetData(1, ref direction);
-
-            bool smooth = true;
-            bool isActive = DA.GetData(2, ref smooth);
-
-            Surface surface2 = surface1;
-            if(isActive)surface2 = NurbsSurface.CreatePeriodicSurface(surface1, direction, smooth);
-            
-            DA.SetData(0, surface2);
-            DA.SetData(1, surface2.IsPeriodic(direction));
+            DA.SetData(0, surface1.IsSolid);
+            DA.SetData(1, surface1.IsClosed(0));
+            DA.SetData(2, surface1.IsClosed(1));
         }
 
         /// <summary>
@@ -94,7 +78,7 @@ namespace SurfacePlus.Utils
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("6b49f9f2-8add-474d-a856-48853200333c"); }
+            get { return new Guid("46407c82-500f-4f1d-b79b-5794bd64e308"); }
         }
     }
 }

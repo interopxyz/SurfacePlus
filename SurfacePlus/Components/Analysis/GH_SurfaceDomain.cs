@@ -50,8 +50,10 @@ namespace SurfacePlus.Analysis
             if (!DA.GetData(0, ref surface))return;
 
             NurbsSurface surface1 = surface.ToNurbsSurface();
+
             Interval u = new Interval(0, 1);
             if(DA.GetData(1,ref u)) surface1.SetDomain(0, u);
+
             Interval v = new Interval(0, 1);
             if (DA.GetData(2, ref v)) surface1.SetDomain(1, v);
             

@@ -4,16 +4,16 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Utils
+namespace SurfacePlus.Components.Analysis
 {
-    public class GH_IsPeriodic : GH_Component
+    public class GH_IsSingular : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the MakePeriodic class.
+        /// Initializes a new instance of the GH_IsSingular class.
         /// </summary>
-        public GH_IsPeriodic()
-          : base("Is Periodic", "Periodic",
-              "Get or set if a surface periodic in one direction",
+        public GH_IsSingular()
+          : base("Is Singular", "Singular",
+              "Test if a surfaces edge length has been collapsed to 0",
               Constants.CatSurface, Constants.SubAnalysis)
         {
         }
@@ -33,14 +33,20 @@ namespace SurfacePlus.Utils
         {
             pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
             pManager[0].Optional = false;
-            pManager.AddIntegerParameter("Direction", "D", "Set the U or V direction", GH_ParamAccess.item, 0);
+            pManager.AddIntegerParameter("Direction", "D", "The direction to test."
+                + Environment.NewLine + "-1 = Any"
+                + Environment.NewLine + " 0 = South"
+                + Environment.NewLine + " 1 = East"
+                + Environment.NewLine + " 2 = North"
+                + Environment.NewLine + " 3 = West", GH_ParamAccess.item, -1);
             pManager[1].Optional = true;
-            pManager.AddBooleanParameter("Smooth", "S", "If true, the resulting surfaces with be smoothed", GH_ParamAccess.item);
-            pManager[2].Optional = true;
 
             Param_Integer paramA = (Param_Integer)pManager[1];
-            paramA.AddNamedValue("U", 0);
-            paramA.AddNamedValue("V", 1);
+            paramA.AddNamedValue("Any", -1);
+            paramA.AddNamedValue("South", 0);
+            paramA.AddNamedValue("East", 1);
+            paramA.AddNamedValue("North", 2);
+            paramA.AddNamedValue("West", 3);
         }
 
         /// <summary>
@@ -48,8 +54,7 @@ namespace SurfacePlus.Utils
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Outputs, GH_ParamAccess.list);
-            pManager.AddBooleanParameter("Status", "S", "The status of the suface", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Is Singular", "S", "True if the edge is collapsed.", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -63,17 +68,33 @@ namespace SurfacePlus.Utils
 
             NurbsSurface surface1 = surface.ToNurbsSurface();
 
-            int direction = 0;
+            int direction = -1;
             DA.GetData(1, ref direction);
 
-            bool smooth = true;
-            bool isActive = DA.GetData(2, ref smooth);
+            bool isSingular = false;
+            if (direction == -1)
+            {
+                bool south = surface1.IsSingular(0);
+                if (south) isSingular = true;
+                bool east = surface1.IsSingular(1);
+                if (east) isSingular = true;
+                bool north = surface1.IsSingular(2);
+                if (north) isSingular = true;
+                bool west = surface1.IsSingular(3);
+                if (west) isSingular = true;
 
-            Surface surface2 = surface1;
-            if(isActive)surface2 = NurbsSurface.CreatePeriodicSurface(surface1, direction, smooth);
-            
-            DA.SetData(0, surface2);
-            DA.SetData(1, surface2.IsPeriodic(direction));
+                DA.SetData(0, isSingular);
+            }
+            else
+            {
+                if (direction == 0) isSingular = surface1.IsSingular(direction);
+                if (direction == 1) isSingular = surface1.IsSingular(direction);
+                if (direction == 2) isSingular = surface1.IsSingular(direction);
+                if (direction == 3) isSingular = surface1.IsSingular(direction);
+
+                DA.SetData(0, isSingular);
+            }
+
         }
 
         /// <summary>
@@ -94,7 +115,7 @@ namespace SurfacePlus.Utils
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("6b49f9f2-8add-474d-a856-48853200333c"); }
+            get { return new Guid("0f0d9740-0e2d-437e-80ff-44b22e491af1"); }
         }
     }
 }

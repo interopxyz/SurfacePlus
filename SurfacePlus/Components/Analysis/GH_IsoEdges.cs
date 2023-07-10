@@ -1,19 +1,18 @@
 ﻿using Grasshopper.Kernel;
-using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Utils
+namespace SurfacePlus.Components.Analysis
 {
-    public class GH_IsPeriodic : GH_Component
+    public class GH_IsoEdges : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the MakePeriodic class.
+        /// Initializes a new instance of the GH_IsoEdges class.
         /// </summary>
-        public GH_IsPeriodic()
-          : base("Is Periodic", "Periodic",
-              "Get or set if a surface periodic in one direction",
+        public GH_IsoEdges()
+          : base("Iso Edges", "Iso Edges",
+              "Extract the Iso Edges",
               Constants.CatSurface, Constants.SubAnalysis)
         {
         }
@@ -23,7 +22,7 @@ namespace SurfacePlus.Utils
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.secondary; }
+            get { return GH_Exposure.senary; }
         }
 
         /// <summary>
@@ -33,14 +32,6 @@ namespace SurfacePlus.Utils
         {
             pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
             pManager[0].Optional = false;
-            pManager.AddIntegerParameter("Direction", "D", "Set the U or V direction", GH_ParamAccess.item, 0);
-            pManager[1].Optional = true;
-            pManager.AddBooleanParameter("Smooth", "S", "If true, the resulting surfaces with be smoothed", GH_ParamAccess.item);
-            pManager[2].Optional = true;
-
-            Param_Integer paramA = (Param_Integer)pManager[1];
-            paramA.AddNamedValue("U", 0);
-            paramA.AddNamedValue("V", 1);
         }
 
         /// <summary>
@@ -48,8 +39,10 @@ namespace SurfacePlus.Utils
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Outputs, GH_ParamAccess.list);
-            pManager.AddBooleanParameter("Status", "S", "The status of the suface", GH_ParamAccess.item);
+            pManager.AddCurveParameter("South", "S", "The south edge", GH_ParamAccess.item);
+            pManager.AddCurveParameter("East", "E", "The east edge", GH_ParamAccess.item);
+            pManager.AddCurveParameter("North", "N", "The north edge", GH_ParamAccess.item);
+            pManager.AddCurveParameter("West", "W", "The west edge", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -62,18 +55,14 @@ namespace SurfacePlus.Utils
             if (!DA.GetData(0, ref surface)) return;
 
             NurbsSurface surface1 = surface.ToNurbsSurface();
+            NurbsSurface surface2 = surface.ToNurbsSurface();
+            surface2.SetDomain(0, new Interval(0, 1));
+            surface2.SetDomain(1, new Interval(0, 1));
 
-            int direction = 0;
-            DA.GetData(1, ref direction);
-
-            bool smooth = true;
-            bool isActive = DA.GetData(2, ref smooth);
-
-            Surface surface2 = surface1;
-            if(isActive)surface2 = NurbsSurface.CreatePeriodicSurface(surface1, direction, smooth);
-            
-            DA.SetData(0, surface2);
-            DA.SetData(1, surface2.IsPeriodic(direction));
+            DA.SetData(0,surface2.IsoCurve(0, 0));
+            DA.SetData(1,surface2.IsoCurve(1, 1));
+            DA.SetData(2,surface2.IsoCurve(0, 1));
+            DA.SetData(3,surface2.IsoCurve(1, 0));
         }
 
         /// <summary>
@@ -94,7 +83,7 @@ namespace SurfacePlus.Utils
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("6b49f9f2-8add-474d-a856-48853200333c"); }
+            get { return new Guid("60607eee-7d01-4524-8ba6-68ecf836b240"); }
         }
     }
 }

@@ -24,9 +24,9 @@ namespace SurfacePlus.Analysis
         {
             pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
             pManager[0].Optional = false;
-            pManager.AddIntegerParameter("Degree U", "U", "Optionally sets the Surface Degree in the U direction", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Degree U", "U", "Optionally increases the Surface Degree in the U direction. If the provided value is lower than the current degree the current degree will be maintained.", GH_ParamAccess.item);
             pManager[1].Optional = true;
-            pManager.AddIntegerParameter("Degree V", "V", "Optionally sets the Surface Degree in the V direction", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Degree V", "V", "Optionally increases the Surface Degree in the V direction. If the provided value is lower than the current degree the current degree will be maintained.", GH_ParamAccess.item);
             pManager[2].Optional = true;
         }
 

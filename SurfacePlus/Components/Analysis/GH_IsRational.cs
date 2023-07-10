@@ -11,7 +11,6 @@ namespace SurfacePlus
         /// Initializes a new instance of the Rationalize class.
         /// </summary>
         public GH_IsRational()
-
           : base("Is Rational", "Rational",
               "Get or set if a surface is rational or non rational",
               Constants.CatSurface, Constants.SubAnalysis)
@@ -60,8 +59,6 @@ namespace SurfacePlus
             bool rational = true;
             bool isActive = DA.GetData(1, ref rational);
             
-            bool status = false;
-
             if (isActive) { 
             if (rational)
             {
@@ -69,7 +66,7 @@ namespace SurfacePlus
             }
             else
             {
-                status = surface1.MakeNonRational();
+                surface1.MakeNonRational();
             }
             }
 

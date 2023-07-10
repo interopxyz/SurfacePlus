@@ -1,4 +1,5 @@
 ﻿using Grasshopper.Kernel;
+using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace SurfacePlus.Analysis
         public GH_SurfaceSpans()
           : base("Surface Spans", "Spans",
               "Span count in the U and V direction",
-              Constants.CatSurface, Constants.SubUtilities)
+              Constants.CatSurface, Constants.SubAnalysis)
         {
         }
 
@@ -24,6 +25,12 @@ namespace SurfacePlus.Analysis
         {
             pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
             pManager[0].Optional = false;
+            pManager.AddIntegerParameter("Direction", "D", "Select either the U or V direction", GH_ParamAccess.item, 0);
+            pManager[1].Optional = true;
+
+            Param_Integer paramA = (Param_Integer)pManager[1];
+            paramA.AddNamedValue("U", 0);
+            paramA.AddNamedValue("V", 1);
         }
 
         /// <summary>
@@ -31,8 +38,9 @@ namespace SurfacePlus.Analysis
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddIntegerParameter("Span U", "U", "Span count in the U direction", GH_ParamAccess.item);
-            pManager.AddIntegerParameter("Span V", "V", "Span count in the V direction", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Count", "U", "Span count in the selected direction", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Vectors", "V", "Span vector parameter values in the selected direction", GH_ParamAccess.list);
+            pManager.AddIntervalParameter("Domains", "D", "Span domains values in the selected direction", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -45,8 +53,22 @@ namespace SurfacePlus.Analysis
             if (!DA.GetData(0, ref surface)) return;
 
             NurbsSurface surface1 = surface.ToNurbsSurface();
-            DA.SetData(0, surface1.SpanCount(0));
-            DA.SetData(1, surface1.SpanCount(1));
+
+            int direction = 0;
+            DA.GetData(1, ref direction);
+
+            List<Interval> intervals = new List<Interval>();
+
+            NurbsCurve nurbsCurve = surface1.IsoCurve(direction, surface1.Domain(direction).T0).ToNurbsCurve();
+
+            for (int i = 0; i < nurbsCurve.SpanCount; i++)
+            {
+                intervals.Add(nurbsCurve.SpanDomain(i));
+            }
+
+            DA.SetData(0, surface1.SpanCount(direction));
+            DA.SetDataList(1, surface1.GetSpanVector(direction));
+            DA.SetDataList(2, intervals);
         }
 
         /// <summary>
