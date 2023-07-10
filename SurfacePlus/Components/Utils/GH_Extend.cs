@@ -42,10 +42,15 @@ namespace SurfacePlus
 
 
             Param_Integer paramA = (Param_Integer)pManager[1];
-            foreach (IsoStatus value in Enum.GetValues(typeof(IsoStatus)))
-            {
-                paramA.AddNamedValue(value.ToString(), (int)value);
-            }
+
+            paramA.AddNamedValue("All", 0);
+            paramA.AddNamedValue("X", 1);
+            paramA.AddNamedValue("Y", 2);
+            paramA.AddNamedValue("South", 3);
+            paramA.AddNamedValue("East", 4);
+            paramA.AddNamedValue("North", 5);
+            paramA.AddNamedValue("West", 6);
+
         }
 
         /// <summary>
@@ -75,10 +80,37 @@ namespace SurfacePlus
 
             bool smooth = true;
             DA.GetData(3, ref smooth);
+            switch(direction)
+            {
+                default:
+                    surface1 = surface1.Extend(IsoStatus.East, distance, smooth).ToNurbsSurface();
+                    surface1 = surface1.Extend(IsoStatus.West, distance, smooth).ToNurbsSurface();
+                    surface1 = surface1.Extend(IsoStatus.North, distance, smooth).ToNurbsSurface();
+                    surface1 = surface1.Extend(IsoStatus.South, distance, smooth).ToNurbsSurface();
+                    break;
+                case 1://X
+                    surface1 = surface1.Extend(IsoStatus.East, distance, smooth).ToNurbsSurface();
+                    surface1 = surface1.Extend(IsoStatus.West, distance, smooth).ToNurbsSurface();
+                    break;
+                case 2://Y
+                    surface1 = surface1.Extend(IsoStatus.North, distance, smooth).ToNurbsSurface();
+                    surface1 = surface1.Extend(IsoStatus.South, distance, smooth).ToNurbsSurface();
+                    break;
+                case 3://South
+                    surface1 = surface1.Extend(IsoStatus.South, distance, smooth).ToNurbsSurface();
+                    break;
+                case 4://East
+                    surface1 = surface1.Extend(IsoStatus.East, distance, smooth).ToNurbsSurface();
+                    break;
+                case 5://North
+                    surface1 = surface1.Extend(IsoStatus.North, distance, smooth).ToNurbsSurface();
+                    break;
+                case 6://West
+                    surface1 = surface1.Extend(IsoStatus.West, distance, smooth).ToNurbsSurface();
+                    break;
+            }
 
-            Surface surface2 = surface1.Extend((IsoStatus)direction, distance, smooth);
-
-            DA.SetData(0, surface2);
+            DA.SetData(0, surface1);
         }
 
         /// <summary>

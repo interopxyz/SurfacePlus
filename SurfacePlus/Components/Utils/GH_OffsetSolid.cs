@@ -11,8 +11,8 @@ namespace SurfacePlus.Utils
         /// Initializes a new instance of the OffsetSolid class.
         /// </summary>
         public GH_OffsetSolid()
-          : base("Inset Surface", "Inset",
-              "Creates a new Surface inset from the original surface",
+          : base("Offset Solid", "Solid",
+              "Offsets a solid brep normal to a surface",
               Constants.CatSurface, Constants.SubUtilities)
         {
         }

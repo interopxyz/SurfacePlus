@@ -51,7 +51,7 @@ namespace SurfacePlus
             if (!DA.GetData(0, ref surface)) return;
 
             Brep brep = Brep.CreateFromSurface(surface);
-            brep.Faces[0].ShrinkSurfaceToEdge();
+            bool status = brep.Faces[0].ShrinkFace(BrepFace.ShrinkDisableSide.ShrinkAllSides);
 
             Surface surface1 = brep.Faces[0].UnderlyingSurface();
             

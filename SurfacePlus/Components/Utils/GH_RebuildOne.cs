@@ -34,9 +34,9 @@ namespace SurfacePlus
             pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
             pManager.AddIntegerParameter("Direction", "D", "Set the U or V direction", GH_ParamAccess.item,0);
             pManager[1].Optional = true;
-            pManager.AddIntegerParameter("Count", "C", "The point count of the new surface", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Count", "C", "The point count of the new surface", GH_ParamAccess.item,4);
             pManager[2].Optional = true;
-            pManager.AddIntegerParameter("Loft Type", "L", "The surface loft type", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Loft Type", "L", "The surface loft type", GH_ParamAccess.item,0);
             pManager[3].Optional = true;
             pManager.AddNumberParameter("Tolerance", "D", "Tolerance value", GH_ParamAccess.item, 0.001);
             pManager[4].Optional = true;
@@ -45,7 +45,7 @@ namespace SurfacePlus
             paramA.AddNamedValue("U", 0);
             paramA.AddNamedValue("V", 1);
 
-            Param_Integer paramB = (Param_Integer)pManager[2];
+            Param_Integer paramB = (Param_Integer)pManager[3];
             foreach (LoftType value in Enum.GetValues(typeof(LoftType)))
             {
                 paramB.AddNamedValue(value.ToString(), (int)value);
@@ -74,7 +74,7 @@ namespace SurfacePlus
             int direction = 0;
             DA.GetData(1, ref direction);
 
-            int count = 2;
+            int count = 4;
             DA.GetData(2, ref count);
 
             int type = 0;

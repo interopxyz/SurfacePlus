@@ -36,7 +36,7 @@ namespace SurfacePlus.Freeform
             pManager[1].Optional = true;
             pManager.AddIntegerParameter("Degree V", "V", "The Surface Degree in the V direction", GH_ParamAccess.item);
             pManager[2].Optional = true;
-            pManager.AddNumberParameter("Tolerance", "D", "Fitting Tolerance", GH_ParamAccess.item, 0.001);
+            pManager.AddNumberParameter("Tolerance", "D", "Fitting Tolerance", GH_ParamAccess.item, 1.0);
             pManager[3].Optional = true;
         }
 
@@ -65,7 +65,7 @@ namespace SurfacePlus.Freeform
             int v = surface1.Degree(1);
             DA.GetData(2, ref v);
 
-            double tolerance = 0.001;
+            double tolerance = 1.0;
             DA.GetData(3, ref tolerance);
 
             Surface surface2 = surface1.Fit(u,v, tolerance);

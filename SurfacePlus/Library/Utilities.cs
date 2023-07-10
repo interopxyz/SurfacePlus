@@ -126,9 +126,20 @@ namespace SurfacePlus
         public static bool TryGetSurface(this Curve input, out Surface surface)
         {
             NurbsCurve c = input.ToNurbsCurve();
+            surface = null;
+            if (c.Points.Count == 5)
+            {
+                if (c.IsClosed)
+                {
+                    surface = c.ToSurface(false);
+                    return true;
+                }
+                return false;
+            }
+            else
             if (c.Points.Count == 4)
             {
-                surface = c.ToSurface();
+                surface = c.ToSurface(c.IsClosed);
                 return true;
             }
             else if (c.Points.Count == 3)
@@ -138,7 +149,6 @@ namespace SurfacePlus
             }
             else
             {
-                surface = null;
                 return false;
             }
         }
