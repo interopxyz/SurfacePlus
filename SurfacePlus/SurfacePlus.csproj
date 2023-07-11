@@ -198,16 +198,31 @@
     <None Include="Resources\Sp-Panel-Dia_Tri.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Shift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Tri_Pattern.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Tri_Dense.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Strips.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Shift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Shear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Shear.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\Sp-Grid-Tri_Pattern.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sp-Grid-Tri_Dense.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Grid-Quad_Shift.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Grid-Quad_Shear.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sp-Grid-Quad_Rnd_Step.png" />
@@ -232,21 +247,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sp-Grid-Dia_Tri.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Panel-Tri_Pattern.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Panel-Tri_Dense.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Panel-Strips.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Panel-Quad_Shift.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Panel-Quad_Shear.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
