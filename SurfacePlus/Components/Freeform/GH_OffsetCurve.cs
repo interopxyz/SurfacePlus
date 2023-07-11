@@ -3,7 +3,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Freeform
+namespace SurfacePlus.Components
 {
     public class GH_OffsetCurve : GH_Component
     {

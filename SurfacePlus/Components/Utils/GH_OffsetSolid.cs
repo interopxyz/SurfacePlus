@@ -3,7 +3,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Utils
+namespace SurfacePlus.Components
 {
     public class GH_OffsetSolid : GH_Component
     {

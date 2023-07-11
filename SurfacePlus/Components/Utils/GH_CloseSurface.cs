@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SurfacePlus.Utils
+namespace SurfacePlus.Components
 {
     public class GH_CloseSurface : GH_Component
     {

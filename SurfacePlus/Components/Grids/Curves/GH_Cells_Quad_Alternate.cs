@@ -3,7 +3,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Components.Grids.Curves
+namespace SurfacePlus.Components
 {
     public class GH_Cells_Quad_Alternate : GH_Cells__BaseIso
     {

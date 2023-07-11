@@ -3,7 +3,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus
+namespace SurfacePlus.Components
 {
     public class Swap : GH_Component
     {
@@ -12,7 +12,7 @@ namespace SurfacePlus
         /// </summary>
         public Swap()
           : base("Swap Surface", "Swap",
-              "Swaps the U and V direction",
+              "Swaps the U and V direction of the surface",
               Constants.CatSurface, Constants.SubUtilities)
         {
         }

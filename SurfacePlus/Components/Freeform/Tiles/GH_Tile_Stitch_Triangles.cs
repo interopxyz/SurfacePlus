@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public GH_Tile_Stitch_Triangles()
           : base("Stitch Triangle Surfaces", "Stitch Tri",
-              "Description",
+              "Facet a closed polyline with stitched triangular surfaces",
               Constants.CatSurface, Constants.SubFreeform)
         {
         }

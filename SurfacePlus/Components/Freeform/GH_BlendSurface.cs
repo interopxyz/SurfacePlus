@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
-namespace SurfacePlus.Freeform
+namespace SurfacePlus.Components
 {
     public class GH_BlendSurface : GH_Component
     {
@@ -17,7 +17,7 @@ namespace SurfacePlus.Freeform
         /// </summary>
         public GH_BlendSurface()
           : base("Blend Surface", "Blend Srf",
-              "Description",
+              "Create a blended surface from two brep edges",
               Constants.CatSurface, Constants.SubFreeform)
         {
         }

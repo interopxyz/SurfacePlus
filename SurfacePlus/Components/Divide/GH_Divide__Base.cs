@@ -4,7 +4,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Divide
+namespace SurfacePlus.Components
 {
     public abstract class GH_Divide__Base : GH_Component
     {

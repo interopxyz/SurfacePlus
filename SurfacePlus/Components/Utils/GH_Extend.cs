@@ -4,7 +4,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus
+namespace SurfacePlus.Components
 {
     public class GH_ExtendSurface : GH_Component
     {
@@ -13,7 +13,7 @@ namespace SurfacePlus
         /// </summary>
         public GH_ExtendSurface()
           : base("Extend Surface", "Extend Srf",
-              "Extend a Surface Edge",
+              "Extend a surface edge or edges",
               Constants.CatSurface, Constants.SubUtilities)
         {
         }

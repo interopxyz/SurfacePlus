@@ -35,7 +35,7 @@ namespace SurfacePlus
             List<double> output = new List<double>();
             double x = (max - min);
             foreach (double v in input) output.Add((v - min) / x);
-                return output;
+            return output;
         }
 
         public static List<int> Remap(this List<double> input, double min, double max, double increment)
@@ -63,10 +63,10 @@ namespace SurfacePlus
 
         public static double Remap(this Interval input, double value, Interval target)
         {
-            double a = input.Max-input.Min;
+            double a = input.Max - input.Min;
             double b = target.Max - target.Min;
 
-            return target.Min+((value-input.Min)/a)*b;
+            return target.Min + ((value - input.Min) / a) * b;
         }
 
         public static double Cap(this Interval input, double value)
@@ -107,7 +107,7 @@ namespace SurfacePlus
         public static List<int> RandomSteps(int count, Interval domain, ref Random random, int steps)
         {
             Random random1 = random;
-            double step =1.0/ (count * steps);
+            double step = 1.0 / (count * steps);
             List<double> outputs = new List<double>();
             double v = 0;
             for (int i = 0; i < count; i++)
@@ -116,7 +116,7 @@ namespace SurfacePlus
                 outputs.Add(v);
             }
 
-            return outputs.Remap(outputs[0], outputs[count - 1],step);
+            return outputs.Remap(outputs[0], outputs[count - 1], step);
         }
 
         #endregion
@@ -295,9 +295,9 @@ namespace SurfacePlus
             int x = (int)direction;
             Curve isocurve = surface.IsoCurve(x, 0);
 
-            List<double> t = isocurve.DivideByCount(count, true,shift).ToList();
+            List<double> t = isocurve.DivideByCount(count, true, shift).ToList();
 
-            for (int i = 1; i < t.Count-1; i++)
+            for (int i = 1; i < t.Count - 1; i++)
             {
                 Surface[] split = surface.Split(x, t[i]);
                 surfaces.Add(split[0]);
@@ -339,24 +339,24 @@ namespace SurfacePlus
         {
             List<double> outputs = new List<double>();
             List<double> values = input.DivideByCount(count, ends).ToList();
-            if ((count > 1)&(t>0)&(t<1))
+            if ((count > 1) & (t > 0) & (t < 1))
             {
                 outputs.Add(values[0]);
                 for (int i = 0; i < count; i++) outputs.Add(values[i] + (values[i + 1] - values[i]) * t);
-                outputs.Add(values[values.Count()-1]);
+                outputs.Add(values[values.Count() - 1]);
                 return outputs;
             }
-        else
+            else
             {
-            return values;
-        }
+                return values;
+            }
         }
 
         public static List<double> Repeat(this List<double> input, int count)
         {
             int c = input.Count;
             List<double> output = new List<double>();
-            for(int i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 int j = (i % c);
                 output.Add(input[j]);
@@ -377,15 +377,15 @@ namespace SurfacePlus
             double v = 1.0 / countV;
             int x = (int)direction;
             Curve isocurve = surface.IsoCurve(x, 0);
-            
+
             List<double> u = isocurve.DivideByCount(countU, true).ToList();
 
             List<double> t = shift.Repeat(countU);
-            for (int i = 1; i < countU+1; i++)
+            for (int i = 1; i < countU + 1; i++)
             {
-                Curve crvA = surface.IsoCurve(1-x, u[i-1]);
-                Curve crvB = surface.IsoCurve(1-x, u[i]);
-                List<double> va = crvA.DivideByCount(countV, true,t[i-1]);
+                Curve crvA = surface.IsoCurve(1 - x, u[i - 1]);
+                Curve crvB = surface.IsoCurve(1 - x, u[i]);
+                List<double> va = crvA.DivideByCount(countV, true, t[i - 1]);
                 List<double> vb = crvB.DivideByCount(countV, true, t[i - 1]);
                 for (int j = 1; j < va.Count; j++) surfaces.Add(NurbsSurface.CreateFromCorners(crvA.PointAt(va[j - 1]), crvA.PointAt(va[j]), crvB.PointAt(vb[j]), crvB.PointAt(vb[j - 1])));
             }
@@ -409,17 +409,17 @@ namespace SurfacePlus
             List<double> u = isocurve.DivideByCount(countU, true).ToList();
 
             List<double> t = shift.Repeat(countU);
-            for (int i = 1; i < countU+1; i++)
+            for (int i = 1; i < countU + 1; i++)
             {
                 Curve crvA = surface.IsoCurve(1 - x, u[i - 1]);
                 Curve crvB = surface.IsoCurve(1 - x, u[i]);
-                List<double> va = crvA.DivideByCount(countV, true,t[i-1]).ToList();
+                List<double> va = crvA.DivideByCount(countV, true, t[i - 1]).ToList();
                 Curve[] crvsA = crvA.Split(va);
                 List<double> vb = crvB.DivideByCount(countV, true, t[i - 1]).ToList();
                 Curve[] crvsB = crvB.Split(vb);
-                for (int j = 0; j < va.Count()-1; j++)
+                for (int j = 0; j < va.Count() - 1; j++)
                 {
-                    surfaces.Add(Brep.CreateFromLoft(new Curve[] { crvsA[j], crvsB[j] }, Point3d.Unset, Point3d.Unset, LoftType.Straight,false)[0].Surfaces[0]);
+                    surfaces.Add(Brep.CreateFromLoft(new Curve[] { crvsA[j], crvsB[j] }, Point3d.Unset, Point3d.Unset, LoftType.Straight, false)[0].Surfaces[0]);
                 }
             }
 
@@ -432,7 +432,7 @@ namespace SurfacePlus
             List<Surface> surfaces = new List<Surface>();
 
             List<Surface> srfs = surface.SplitStrips((SurfaceDirection)direction, countU);
-            for (int i = 0; i < countU; i++) surfaces.AddRange(srfs[i].SplitStrips(1-direction, countV));
+            for (int i = 0; i < countU; i++) surfaces.AddRange(srfs[i].SplitStrips(1 - direction, countV));
 
             return surfaces;
         }
@@ -442,9 +442,9 @@ namespace SurfacePlus
             NurbsSurface surface = input.Unitize();
             List<Surface> surfaces = new List<Surface>();
 
-        List<double> t = shift.Repeat(countU);
-        List<Surface> srfs = surface.SplitStrips((SurfaceDirection)direction, countU);
-            for (int i = 0; i < countU; i++) surfaces.AddRange(srfs[i].SplitStrips(1 - direction, countV,t[i]));
+            List<double> t = shift.Repeat(countU);
+            List<Surface> srfs = surface.SplitStrips((SurfaceDirection)direction, countU);
+            for (int i = 0; i < countU; i++) surfaces.AddRange(srfs[i].SplitStrips(1 - direction, countV, t[i]));
 
             return surfaces;
         }
@@ -453,11 +453,11 @@ namespace SurfacePlus
 
         #region wireframes
 
-            #endregion
+        #endregion
 
-            #region random quads
+        #region random quads
 
-            public static List<Surface> CornerQuads(this Surface input, SurfaceDirection direction, int countU, int countV, int seed, Interval domain)
+        public static List<Surface> CornerQuads(this Surface input, SurfaceDirection direction, int countU, int countV, int seed, Interval domain)
         {
             NurbsSurface surface = input.Unitize();
             List<Surface> surfaces = new List<Surface>();
@@ -472,7 +472,7 @@ namespace SurfacePlus
             {
                 Curve crvA = surface.IsoCurve(1 - x, u[i - 1]);
                 Curve crvB = surface.IsoCurve(1 - x, u[i]);
-                List<double> v = RandomList(countV+1, domain, ref rnd);
+                List<double> v = RandomList(countV + 1, domain, ref rnd);
                 for (int j = 1; j < v.Count; j++) surfaces.Add(NurbsSurface.CreateFromCorners(crvA.PointAt(v[j - 1]), crvA.PointAt(v[j]), crvB.PointAt(v[j]), crvB.PointAt(v[j - 1])));
             }
 
@@ -494,7 +494,7 @@ namespace SurfacePlus
             {
                 Curve crvA = surface.IsoCurve(1 - x, u[i - 1]);
                 Curve crvB = surface.IsoCurve(1 - x, u[i]);
-                List<double> v = RandomList(countV+1, domain, ref rnd);
+                List<double> v = RandomList(countV + 1, domain, ref rnd);
                 Curve[] crvsA = crvA.Split(v);
                 Curve[] crvsB = crvB.Split(v);
                 for (int j = 0; j < v.Count() - 1; j++)
@@ -515,7 +515,7 @@ namespace SurfacePlus
             List<Surface> srfs = surface.SplitStrips((SurfaceDirection)direction, countU);
             for (int i = 0; i < countU; i++)
             {
-                List<double> v = RandomList(countV+1, domain, ref rnd);
+                List<double> v = RandomList(countV + 1, domain, ref rnd);
                 surfaces.AddRange(srfs[i].SplitStrips(1 - direction, countV, v));
             }
 
@@ -581,18 +581,19 @@ namespace SurfacePlus
             else if (parameter.Y >= 1)
             {
                 isocurve.Reverse();
-                 t = isocurve.DivideByLength(length, true).ToList();
+                t = isocurve.DivideByLength(length, true).ToList();
             }
             else
             {
-            Curve[] subcurves = isocurve.Split(parameter.Y);
+                Curve[] subcurves = isocurve.Split(parameter.Y);
                 Interval interval = new Interval(subcurves[0].Domain.T1, subcurves[0].Domain.T0);
                 subcurves[0].Domain = interval;
                 subcurves[0].Reverse();
-                double[] a = subcurves[0].DivideByLength(length,false);
-                if (a != null) { 
-                Array.Reverse(a);
-                t.AddRange(a);
+                double[] a = subcurves[0].DivideByLength(length, false);
+                if (a != null)
+                {
+                    Array.Reverse(a);
+                    t.AddRange(a);
                 }
                 t.AddRange(subcurves[1].DivideByLength(length, true));
             }
@@ -616,7 +617,7 @@ namespace SurfacePlus
             Curve isocurve = surface.IsoCurve(1 - x, parameter);
             //curves.Add(isocurve);
 
-            int count = isocurve.DivideByLength(length,false).ToList().Count();
+            int count = isocurve.DivideByLength(length, false).ToList().Count();
             if (below) count += 1;
             List<double> t = isocurve.DivideByCount(count, true).ToList();
 
@@ -635,7 +636,7 @@ namespace SurfacePlus
         public static Polyline Shift(this Polyline input, int steps)
         {
             Polyline output = new Polyline(input);
-            for(int i = 0; i < steps; i++)
+            for (int i = 0; i < steps; i++)
             {
                 output.RemoveAt(0);
                 output.Add(output[0]);
@@ -674,12 +675,12 @@ namespace SurfacePlus
             List<Surface> surfaces = new List<Surface>();
 
             Polyline p = input.ControlPolygon();
-            if (p.Count < 4)return surfaces;
+            if (p.Count < 4) return surfaces;
             if (p.Count.isOdd()) return surfaces;
 
             Point3d c = p.CenterPoint();
 
-            for (int i = 0; i < p.Count - 2; i+=2)
+            for (int i = 0; i < p.Count - 2; i += 2)
             {
                 surfaces.Add(NurbsSurface.CreateFromCorners(p[i + 2], p[i + 1], p[i], c));
             }
@@ -717,7 +718,7 @@ namespace SurfacePlus
             if (!p.IsClosed) return surfaces;
             if (p.Count < 4) return surfaces;
 
-            for (int i = 1; i < p.Count - 1; i ++)
+            for (int i = 1; i < p.Count - 1; i++)
             {
                 surfaces.Add(NurbsSurface.CreateFromCorners(p[0], p[i + 1], p[i]));
             }
@@ -740,7 +741,7 @@ namespace SurfacePlus
             p = p.Shift(1);
 
             int h = (int)Math.Floor(c / 2.0);
-            for (int i = 0; i < h; i ++)
+            for (int i = 0; i < h; i++)
             {
                 surfaces.Add(NurbsSurface.CreateFromCorners(p[i], p[c - 2 - i], p[i + 1], p[c - 3 - i]));
             }
@@ -761,12 +762,12 @@ namespace SurfacePlus
 
             int h = (int)Math.Floor(c / 2.0);
             surfaces.Add(NurbsSurface.CreateFromCorners(p[0], p[c - 2], p[1]));
-            for (int i = 1; i < h-1; i ++)
+            for (int i = 1; i < h - 1; i++)
             {
                 surfaces.Add(NurbsSurface.CreateFromCorners(p[c - 1 - i], p[i + 1], p[i]));
                 surfaces.Add(NurbsSurface.CreateFromCorners(p[i + 1], p[c - 1 - i], p[c - 2 - i]));
             }
-            if(!c.isOdd()) surfaces.Add(NurbsSurface.CreateFromCorners(p[h-1], p[h + 1], p[h]));
+            if (!c.isOdd()) surfaces.Add(NurbsSurface.CreateFromCorners(p[h - 1], p[h + 1], p[h]));
 
             status = true;
             return surfaces;

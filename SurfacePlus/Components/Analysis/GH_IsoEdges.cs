@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace SurfacePlus.Components.Analysis
+namespace SurfacePlus.Components
 {
     public class GH_IsoEdges : GH_Component
     {

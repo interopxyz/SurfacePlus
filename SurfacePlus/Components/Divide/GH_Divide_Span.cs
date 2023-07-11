@@ -3,7 +3,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Divide
+namespace SurfacePlus.Components
 {
     public class GH_Divide_Span : GH_Divide__Base
     {

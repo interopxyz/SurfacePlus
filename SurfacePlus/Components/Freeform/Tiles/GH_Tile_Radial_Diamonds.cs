@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public GH_Curve_Diamonds()
           : base("Stellate Diamond Surfaces", "Stellate Dia",
-              "Description",
+              "Radially distribute quad surfaces around a closed polyline center",
               Constants.CatSurface, Constants.SubFreeform)
         {
         }

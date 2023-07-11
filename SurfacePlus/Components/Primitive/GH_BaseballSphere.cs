@@ -3,7 +3,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Primitive
+namespace SurfacePlus.Components
 {
     public class GH_BaseballSphere : GH_Component
     {

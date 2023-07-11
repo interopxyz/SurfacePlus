@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public GH_Curve_QuadHex()
           : base("Stitch Quad Surfaces", "Stitch Quads",
-              "Splits a hexagon into parallel quads",
+              "Facet a closed polyline with parallel quad surfaces",
               Constants.CatSurface, Constants.SubFreeform)
         {
         }

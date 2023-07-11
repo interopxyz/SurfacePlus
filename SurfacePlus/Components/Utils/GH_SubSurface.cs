@@ -4,7 +4,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Components.Utils
+namespace SurfacePlus.Components
 {
     public class GH_SubSurface : GH_Component
     {

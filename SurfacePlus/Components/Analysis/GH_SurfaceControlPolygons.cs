@@ -4,7 +4,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Components.Analysis
+namespace SurfacePlus.Components
 {
     public class GH_SurfaceControlPolygons : GH_Component
     {

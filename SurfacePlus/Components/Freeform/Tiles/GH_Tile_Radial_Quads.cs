@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public GH_Curve_Quadrangulate()
           : base("Stellate Quad Surfaces", "Stellate Quads",
-              "Radially triangulate a closed polyline",
+              "Radially quadrangulate a closed polyline about its averaged center",
               Constants.CatSurface, Constants.SubFreeform)
         {
         }

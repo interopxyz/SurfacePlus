@@ -4,7 +4,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Components.Grids.Curves
+namespace SurfacePlus.Components
 {
     public class GH_Cells_Hexagon : GH_Cells__BaseGrid
     {

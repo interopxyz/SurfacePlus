@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
-namespace SurfacePlus.Analysis
+namespace SurfacePlus.Components
 {
     public class GH_SurfaceSpans : GH_Component
     {

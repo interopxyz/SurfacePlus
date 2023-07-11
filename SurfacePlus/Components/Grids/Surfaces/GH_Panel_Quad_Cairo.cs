@@ -3,7 +3,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus.Components.Panels
+namespace SurfacePlus.Components
 {
     public class GH_Panel_Quad_Cairo : GH_Panel__BaseTri
     {
