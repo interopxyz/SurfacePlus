@@ -63,6 +63,256 @@ namespace SurfacePlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Dia_Tri {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Dia_Tri", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Diamond {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Diamond", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Hex {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Hex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Quad_Alternate {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Quad_Alternate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Quad_Basic {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Quad_Basic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Quad_Cairo {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Quad_Cairo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Quad_Rnd_Param {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Quad_Rnd_Param", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Quad_Rnd_Step {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Quad_Rnd_Step", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Quad_Shear {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Quad_Shear", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Quad_Shift {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Quad_Shift", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Tri_Dense {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Tri_Dense", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Grid_Tri_Pattern {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Grid_Tri_Pattern", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Dia_Tri {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Dia_Tri", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Diamond {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Diamond", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Hex {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Hex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Quad {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Quad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Quad_Alternate {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Quad_Alternate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Quad_Cairo {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Quad_Cairo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Quad_Rnd_Param {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Quad_Rnd_Param", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Quad_Rnd_Step {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Quad_Rnd_Step", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Quad_Shear {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Quad_Shear", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Quad_Shift {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Quad_Shift", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Strips {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Strips", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Tri_Dense {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Tri_Dense", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Panel_Tri_Pattern {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Panel_Tri_Pattern", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SurfacePlus_Logo_16 {
             get {
                 object obj = ResourceManager.GetObject("SurfacePlus_Logo_16", resourceCulture);

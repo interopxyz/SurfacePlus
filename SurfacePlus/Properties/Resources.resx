@@ -118,6 +118,81 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Sp_Grid_Diamond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Diamond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Grid_Dia_Tri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Dia_Tri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Grid_Hex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Hex.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Grid_Quad_Alternate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Quad_Alternate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Grid_Quad_Basic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Quad_Basic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Grid_Quad_Cairo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Quad_Cairo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Grid_Quad_Rnd_Param" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Quad_Rnd_Param.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Grid_Quad_Rnd_Step" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Quad_Rnd_Step.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Grid_Quad_Shear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Quad_Shear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Grid_Quad_Shift" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Quad_Shift.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Grid_Tri_Dense" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Tri_Dense.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Grid_Tri_Pattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Grid-Tri_Pattern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Diamond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Diamond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Dia_Tri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Dia_Tri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Hex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Hex.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Quad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Quad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Quad_Alternate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Quad_Alternate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Quad_Cairo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Quad_Cairo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Quad_Rnd_Param" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Quad_Rnd_Param.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Quad_Rnd_Step" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Quad_Rnd_Step.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Quad_Shear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Quad_Shear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Quad_Shift" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Quad_Shift.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Strips" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Strips.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Tri_Dense" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Tri_Dense.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Panel_Tri_Pattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Panel-Tri_Pattern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SurfacePlus_Logo_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SurfacePlus_Logo_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

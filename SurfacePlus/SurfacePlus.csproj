@@ -173,7 +173,81 @@
   <ItemGroup>
     <None Include="Resources\SurfacePlus_Logo_16.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Rnd_Step.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Rnd_Param.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Cairo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Alternate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Hex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Dia_Tri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Tri_Pattern.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Tri_Dense.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Shift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Shear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Rnd_Step.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Rnd_Param.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Cairo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Basic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Alternate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Hex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Dia_Tri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Tri_Pattern.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Tri_Dense.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Strips.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Shift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Shear.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
