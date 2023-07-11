@@ -3,28 +3,19 @@ using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
 
-namespace SurfacePlus.Analysis
+namespace SurfacePlus.Components.Analysis
 {
-    public class GH_SurfaceSpans : GH_Component
+    public class GH_SurfaceControlPolygons : GH_Component
     {
-        List<Curve> prev_crvs = new List<Curve>();
-
         /// <summary>
-        /// Initializes a new instance of the SurfaceSpans class.
+        /// Initializes a new instance of the GH_SurfaceHulls class.
         /// </summary>
-        public GH_SurfaceSpans()
-          : base("Surface Spans", "Spans",
-              "Span count in the U and V direction",
+        public GH_SurfaceControlPolygons()
+          : base("Surface Control Polygons", "Surface Ctrl Pgon",
+              "The control point polygon in teh U or V direction",
               Constants.CatSurface, Constants.SubAnalysis)
         {
-        }
-
-        protected override void BeforeSolveInstance()
-        {
-            prev_crvs = new List<Curve>();
         }
 
         /// <summary>
@@ -47,9 +38,7 @@ namespace SurfacePlus.Analysis
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddIntegerParameter("Count", "C", "Span count in the selected direction", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Parameters", "P", "Span vector parameter values in the selected direction", GH_ParamAccess.list);
-            pManager.AddIntervalParameter("Domains", "D", "Span domains values in the selected direction", GH_ParamAccess.list);
+            pManager.AddCurveParameter("Polylines", "P", "Control Polygons in the selected direction", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -66,20 +55,38 @@ namespace SurfacePlus.Analysis
             int direction = 0;
             DA.GetData(1, ref direction);
 
-            int count = surface1.SpanCount(direction);
-            List<double> parameters = surface1.GetSpanVector(direction).ToList();
-            List<Interval> intervals = new List<Interval>();
+            int u = surface1.Points.CountU;
+            int v = surface1.Points.CountV;
 
-            for (int i = 0; i < parameters.Count-1; i++)
+            List<Polyline> polylines = new List<Polyline>();
+
+            if (direction == 0)
             {
-                intervals.Add(new Interval(parameters[i],parameters[i+1]));
-                prev_crvs.Add(surface1.IsoCurve(1-direction, parameters[i]));
+                for (int i = 0; i < u; i++)
+                {
+                    Polyline polyline = new Polyline();
+                    for (int j = 0; j < v; j++)
+                    {
+                        polyline.Add(surface1.Points.GetControlPoint(i, j).Location);
+                    }
+                    polylines.Add(polyline);
+                }
             }
-            prev_crvs.Add(surface1.IsoCurve(1-direction, parameters[count]));
 
-            DA.SetData(0, count);
-            DA.SetDataList(1, parameters);
-            DA.SetDataList(2, intervals);
+            if (direction == 1)
+            {
+                for (int i = 0; i < v; i++)
+                {
+                    Polyline polyline = new Polyline();
+                    for (int j = 0; j < u; j++)
+                    {
+                        polyline.Add(surface1.Points.GetControlPoint(j, i).Location);
+                    }
+                    polylines.Add(polyline);
+                }
+            }
+
+            DA.SetDataList(0, polylines);
         }
 
         /// <summary>
@@ -100,33 +107,7 @@ namespace SurfacePlus.Analysis
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("b8fce49f-df0f-49de-924e-c51fc7386bb2"); }
-        }
-
-        public override void DrawViewportMeshes(IGH_PreviewArgs args)
-        {
-            if (Hidden) return;
-            if (Locked) return;
-            Transform xform = args.Viewport.GetTransform(Rhino.DocObjects.CoordinateSystem.World, Rhino.DocObjects.CoordinateSystem.Screen);
-
-            Rhino.Display.DisplayMaterial mat = new Rhino.Display.DisplayMaterial();
-            if (Attributes.Selected)
-            {
-                mat = args.ShadeMaterial_Selected;
-            }
-            else
-            {
-                mat = args.ShadeMaterial;
-            }
-
-            Color activeColor = mat.Diffuse;
-
-            foreach (Curve crv in prev_crvs)
-            {
-                args.Display.DrawCurve(crv, activeColor);
-            }
-
-            base.DrawViewportMeshes(args);
+            get { return new Guid("04ac1933-2ded-47df-9058-d8b56eeef837"); }
         }
     }
 }

@@ -578,7 +578,7 @@ namespace SurfacePlus
             {
                 t = isocurve.DivideByLength(length, true).ToList();
             }
-            else if (parameter.Y >= 0)
+            else if (parameter.Y >= 1)
             {
                 isocurve.Reverse();
                  t = isocurve.DivideByLength(length, true).ToList();
@@ -586,17 +586,22 @@ namespace SurfacePlus
             else
             {
             Curve[] subcurves = isocurve.Split(parameter.Y);
+                Interval interval = new Interval(subcurves[0].Domain.T1, subcurves[0].Domain.T0);
+                subcurves[0].Domain = interval;
+                subcurves[0].Reverse();
                 double[] a = subcurves[0].DivideByLength(length,false);
+                if (a != null) { 
                 Array.Reverse(a);
                 t.AddRange(a);
-                t.AddRange(subcurves[0].DivideByLength(length, true));
+                }
+                t.AddRange(subcurves[1].DivideByLength(length, true));
             }
 
             int count = t.Count;
 
             for (int i = 0; i < count; i++)
             {
-                curves.Add(surface.IsoCurve(x, t[i]));
+                curves.Add(surface.IsoCurve(x, Math.Abs(t[i])));
             }
 
             return curves;

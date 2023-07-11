@@ -3,17 +3,17 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SurfacePlus
+namespace SurfacePlus.Components.Analysis
 {
-    public class Shrink : GH_Component
+    public class GH_Brep_Surfaces : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the MyComponent1 class.
+        /// Initializes a new instance of the GH_Brep_Surfaces class.
         /// </summary>
-        public Shrink()
-          : base("Shrink Surface", "Shrink",
-              "Shrinks the underlying surfaces of a brep face to the trimmed edges.",
-              Constants.CatSurface, Constants.SubUtilities)
+        public GH_Brep_Surfaces()
+          : base("Brep Surfaces", "Brep Srfs",
+              "Gets the untrimmed surfaces of each brep face",
+              Constants.CatSurface, Constants.SubAnalysis)
         {
         }
 
@@ -30,7 +30,8 @@ namespace SurfacePlus
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddBrepParameter(Constants.Brep.Name, Constants.Brep.NickName, Constants.Brep.Input, GH_ParamAccess.item);
+            pManager.AddBrepParameter(Constants.Brep.Name, Constants.Brep.NickName, Constants.Brep.Input, GH_ParamAccess.list);
+            pManager[0].Optional = false;
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace SurfacePlus
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Brep.Name, Constants.Brep.NickName, Constants.Brep.Output, GH_ParamAccess.item);
+            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Outputs, GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -50,14 +51,14 @@ namespace SurfacePlus
             Brep brep = new Brep();
             if (!DA.GetData(0, ref brep)) return;
 
-            brep = brep.DuplicateBrep();
+            List<Surface> surfaces = new List<Surface>();
 
-            for (int i = 0; i < brep.Faces.Count; i++)
+            for(int i =0;i<brep.Faces.Count;i++)
             {
-                brep.Faces[i].ShrinkSurfaceToEdge();
+                surfaces.Add(brep.Faces[i].UnderlyingSurface());
             }
-            
-            DA.SetData(0, brep);
+
+            DA.SetDataList(0, surfaces);
         }
 
         /// <summary>
@@ -78,7 +79,7 @@ namespace SurfacePlus
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("be5ee4e7-8758-4288-9704-781acff6bc74"); }
+            get { return new Guid("547b5f17-e458-4399-baf6-f41653741a30"); }
         }
     }
 }

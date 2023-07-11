@@ -2,11 +2,14 @@
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace SurfacePlus.Components.Analysis
 {
     public class GH_IsoEdges : GH_Component
     {
+        protected List<Surface> prev_srfs = new List<Surface>();
+
         /// <summary>
         /// Initializes a new instance of the GH_IsoEdges class.
         /// </summary>
@@ -15,6 +18,11 @@ namespace SurfacePlus.Components.Analysis
               "Extract the Iso Edges",
               Constants.CatSurface, Constants.SubAnalysis)
         {
+        }
+
+        protected override void BeforeSolveInstance()
+        {
+            prev_srfs = new List<Surface>();
         }
 
         /// <summary>
@@ -59,6 +67,8 @@ namespace SurfacePlus.Components.Analysis
             surface2.SetDomain(0, new Interval(0, 1));
             surface2.SetDomain(1, new Interval(0, 1));
 
+            prev_srfs.Add(surface2);
+
             DA.SetData(0,surface2.IsoCurve(0, 0));
             DA.SetData(1,surface2.IsoCurve(1, 1));
             DA.SetData(2,surface2.IsoCurve(0, 1));
@@ -84,6 +94,46 @@ namespace SurfacePlus.Components.Analysis
         public override Guid ComponentGuid
         {
             get { return new Guid("60607eee-7d01-4524-8ba6-68ecf836b240"); }
+        }
+
+        public override void DrawViewportMeshes(IGH_PreviewArgs args)
+        {
+            if (Hidden) return;
+            if (Locked) return;
+            Transform xform = args.Viewport.GetTransform(Rhino.DocObjects.CoordinateSystem.World, Rhino.DocObjects.CoordinateSystem.Screen);
+
+            Rhino.Display.DisplayMaterial mat = new Rhino.Display.DisplayMaterial();
+            if (Attributes.Selected)
+            {
+                mat = args.ShadeMaterial_Selected;
+            }
+            else
+            {
+                mat = args.ShadeMaterial;
+            }
+
+            Color activeColor = mat.Diffuse;
+
+            foreach (Surface srf in prev_srfs)
+            {
+                Point3d ps = srf.PointAt(0.5, 0);
+                ps.Transform(xform);
+                args.Display.Draw2dText("South", activeColor, new Point2d(ps.X, ps.Y), true);
+
+                Point3d pe = srf.PointAt(1, 0.5);
+                pe.Transform(xform);
+                args.Display.Draw2dText("East", activeColor, new Point2d(pe.X, pe.Y), true);
+
+                Point3d pn = srf.PointAt(0.5, 1);
+                pn.Transform(xform);
+                args.Display.Draw2dText("North", activeColor, new Point2d(pn.X, pn.Y), true);
+
+                Point3d pw = srf.PointAt(0, 0.5);
+                pw.Transform(xform);
+                args.Display.Draw2dText("West", activeColor, new Point2d(pw.X, pw.Y), true);
+            }
+
+            base.DrawViewportMeshes(args);
         }
     }
 }

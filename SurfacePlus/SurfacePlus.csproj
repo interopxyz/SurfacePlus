@@ -63,11 +63,13 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Analysis\GH_Brep_Surfaces.cs" />
     <Compile Include="Components\Analysis\GH_IsoEdges.cs" />
     <Compile Include="Components\Analysis\GH_IsSingular.cs" />
     <Compile Include="Components\Analysis\GH_IsSurfaceClosed.cs" />
     <Compile Include="Components\Analysis\GH_SurfaceDegree.cs" />
     <Compile Include="Components\Analysis\GH_SurfaceDomain.cs" />
+    <Compile Include="Components\Analysis\GH_SurfaceControlPolygons.cs" />
     <Compile Include="Components\Analysis\GH_SurfaceSpans.cs" />
     <Compile Include="Components\Freeform\Tiles\GH_Tile_Radial_Diamonds.cs" />
     <Compile Include="Components\Freeform\Tiles\GH_Tile_Stitch_Quads.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="Components\Grids\Surfaces\GH_Panel_Quad_Shear.cs" />
     <Compile Include="Components\Grids\Surfaces\GH_Panel_Diamond_Quad.cs" />
     <Compile Include="Components\Grids\Surfaces\GH_Panel__BaseTri.cs" />
+    <Compile Include="Components\Utils\GH_SubSurface.cs" />
     <Compile Include="Library\Constants.cs" />
     <Compile Include="Components\Divide\GH_Divide_Count.cs" />
     <Compile Include="Components\Divide\GH_Divide_Length.cs" />
