@@ -12,8 +12,8 @@ namespace SurfacePlus.Components
         /// Initializes a new instance of the GH_SubSurface class.
         /// </summary>
         public GH_SubSurface()
-          : base("Split Surface", "Split Srf",
-              "Splits a Surface at a parameter",
+          : base("Sub Surface", "Sub Srf",
+              "Splits a sub surface from an interval",
               Constants.CatSurface, Constants.SubUtilities)
         {
         }

@@ -313,6 +313,36 @@ namespace SurfacePlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Frame {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Frame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Inset {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Inset", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Join {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Join", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SurfacePlus_Logo_16 {
             get {
                 object obj = ResourceManager.GetObject("SurfacePlus_Logo_16", resourceCulture);

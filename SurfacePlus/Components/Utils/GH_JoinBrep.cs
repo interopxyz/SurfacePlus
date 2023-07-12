@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// Initializes a new instance of the JoinBrep class.
         /// </summary>
         public GH_JoinBrep()
-          : base("Join Brep Advanced", "Join Brep Adv",
+          : base("Brep Join Advanced", "Join Brep Adv",
               "Join multiple breps with a given tolerance",
               Constants.CatSurface, Constants.SubUtilities)
         {
@@ -71,7 +71,7 @@ namespace SurfacePlus.Components
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return null;
+                return Properties.Resources.Sp_Util_Join;
             }
         }
 

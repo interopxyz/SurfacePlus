@@ -193,6 +193,15 @@
   <data name="Sp_Panel_Tri_Pattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sp-Panel-Tri_Pattern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Sp_Util_Frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Inset" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Inset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Join" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Join.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SurfacePlus_Logo_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SurfacePlus_Logo_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

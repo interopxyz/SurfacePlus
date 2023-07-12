@@ -248,6 +248,15 @@
   <ItemGroup>
     <None Include="Resources\Sp-Grid-Dia_Tri.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Join.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Inset.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
