@@ -78,7 +78,7 @@
     <Compile Include="Components\Freeform\Tiles\GH_Tile_Fan.cs" />
     <Compile Include="Components\Freeform\Tiles\GH_Tile_Stitch_Triangles.cs" />
     <Compile Include="Components\Freeform\Tiles\GH_Tile__Base.cs" />
-    <Compile Include="Components\Utils\GH_SurfaceSide.cs" />
+    <Compile Include="Components\Analysis\GH_SurfaceSide.cs" />
     <Compile Include="Components\Grids\Curves\GH_Cells_Diamond_Quads.cs" />
     <Compile Include="Components\Grids\Curves\GH_Cells_Diamond_Triangles.cs" />
     <Compile Include="Components\Grids\Curves\GH_Cells_Hexagon.cs" />
@@ -174,55 +174,136 @@
     <None Include="Resources\SurfacePlus_Logo_16.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sp-Panel-Quad_Rnd_Step.png" />
+    <None Include="Resources\Sp-Ana_Srf_Degree.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sp-Panel-Quad_Rnd_Param.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Panel-Quad_Cairo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Panel-Quad_Alternate.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Panel-Quad.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Panel-Hex.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Panel-Diamond.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Panel-Dia_Tri.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Grid-Quad_Shift.png" />
+    <None Include="Resources\Sp-Util-SubSurface.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sp-Panel-Tri_Pattern.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Sp-Ana_Side.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Cairo.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\Sp-Panel-Tri_Dense.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sp-Panel-Strips.png" />
+    <None Include="Resources\Sp-Crv_Extend.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sp-Panel-Quad_Shift.png" />
+    <None Include="Resources\Sp-Ana_Side2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sp-Panel-Quad_Shear.png" />
+    <None Include="Resources\Sp-Util-Shrink.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sp-Grid-Quad_Shear.png" />
+    <None Include="Resources\Sp-Ana_Srf_Domain.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sp-Grid-Tri_Pattern.png" />
+    <None Include="Resources\Sp-Panel-Quad_Cairo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sp-Grid-Tri_Dense.png" />
+    <None Include="Resources\Sp-Ana_Rational.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Ana_Srf_ControlPolygons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Ana_Side4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Ana_Iso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Hex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Hex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Join.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Ana_IsClosed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Dia_Tri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Ana_IsPeriodic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-CloseSurface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Crv_Crv_Srf_Fit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Extend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Dia_Tri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Weight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Crv_Blend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Free_Edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Free_Blend_Surface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-OffsetSolid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Free_Fit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Primative-Sphere_Baseball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Crv_Offset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Stitch_Quad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Radial_Tris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Radial_Quads.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Radial_Diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Fan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Stitch_Triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Split2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Basic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Inset.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sp-Grid-Quad_Rnd_Step.png" />
@@ -231,31 +312,91 @@
     <None Include="Resources\Sp-Grid-Quad_Rnd_Param.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sp-Grid-Quad_Cairo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Grid-Quad_Basic.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Sp-Grid-Quad_Alternate.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Grid-Hex.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Grid-Diamond.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Grid-Dia_Tri.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Util-Join.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sp-Util-Frame.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sp-Util-Inset.png" />
+    <None Include="Resources\Sp-Grid-Quad_Shift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-SubSurface2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Strips.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Ana_Srf_Spans.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Rebuild_One.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Div_Span.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Div_Iso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Rnd_Step.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Rnd_Param.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Alternate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Split3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Shift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Div_Count.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Rebuild.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-SubSurface3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Reverse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Div_Length.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Swap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Quad_Shear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Ana_Side3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Tri_Pattern.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Split.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Ana_IsSingle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Ana_Surfaces.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Grid-Tri_Dense.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Panel-Quad_Shear.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

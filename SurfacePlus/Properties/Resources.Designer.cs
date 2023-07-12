@@ -63,6 +63,256 @@ namespace SurfacePlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_IsClosed {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_IsClosed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_Iso {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_Iso", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_IsPeriodic {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_IsPeriodic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_IsSingle {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_IsSingle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_Rational {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_Rational", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_Side {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_Side", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_Side2 {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_Side2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_Side3 {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_Side3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_Side4 {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_Side4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_Srf_ControlPolygons {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_Srf_ControlPolygons", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_Srf_Degree {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_Srf_Degree", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_Srf_Domain {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_Srf_Domain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_Srf_Spans {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_Srf_Spans", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Ana_Surfaces {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Ana_Surfaces", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Crv_Blend {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Crv_Blend", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Crv_Crv_Srf_Fit {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Crv_Crv_Srf_Fit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Crv_Extend {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Crv_Extend", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Crv_Offset {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Crv_Offset", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Div_Count {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Div_Count", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Div_Iso {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Div_Iso", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Div_Length {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Div_Length", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Div_Span {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Div_Span", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Free_Blend_Surface {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Free_Blend_Surface", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Free_Edge {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Free_Edge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Free_Fit {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Free_Fit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sp_Grid_Dia_Tri {
             get {
                 object obj = ResourceManager.GetObject("Sp_Grid_Dia_Tri", resourceCulture);
@@ -313,6 +563,96 @@ namespace SurfacePlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sp_Primative_Sphere_Baseball {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Primative_Sphere_Baseball", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Tile_Fan {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Tile_Fan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Tile_Radial_Diamond {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Tile_Radial_Diamond", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Tile_Radial_Quads {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Tile_Radial_Quads", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Tile_Radial_Tris {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Tile_Radial_Tris", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Tile_Stitch_Quad {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Tile_Stitch_Quad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Tile_Stitch_Triangle {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Tile_Stitch_Triangle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_CloseSurface {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_CloseSurface", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Extend {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Extend", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sp_Util_Frame {
             get {
                 object obj = ResourceManager.GetObject("Sp_Util_Frame", resourceCulture);
@@ -336,6 +676,136 @@ namespace SurfacePlus.Properties {
         internal static System.Drawing.Bitmap Sp_Util_Join {
             get {
                 object obj = ResourceManager.GetObject("Sp_Util_Join", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_OffsetSolid {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_OffsetSolid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Rebuild {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Rebuild", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Rebuild_One {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Rebuild_One", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Reverse {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Reverse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Shrink {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Shrink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Split {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Split", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Split2 {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Split2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Split3 {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Split3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_SubSurface {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_SubSurface", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_SubSurface2 {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_SubSurface2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_SubSurface3 {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_SubSurface3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Swap {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Swap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Weight {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Weight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -118,6 +118,81 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Sp_Ana_IsClosed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_IsClosed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_Iso" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_Iso.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_IsPeriodic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_IsPeriodic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_IsSingle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_IsSingle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_Rational" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_Rational.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_Side" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_Side.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_Side2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_Side2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_Side3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_Side3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_Side4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_Side4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_Srf_ControlPolygons" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_Srf_ControlPolygons.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_Srf_Degree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_Srf_Degree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_Srf_Domain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_Srf_Domain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_Srf_Spans" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_Srf_Spans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Ana_Surfaces" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Ana_Surfaces.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Crv_Blend" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Crv_Blend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Crv_Crv_Srf_Fit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Crv_Crv_Srf_Fit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Crv_Extend" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Crv_Extend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Crv_Offset" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Crv_Offset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Div_Count" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Div_Count.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Div_Iso" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Div_Iso.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Div_Length" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Div_Length.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Div_Span" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Div_Span.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Free_Blend_Surface" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Free_Blend_Surface.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Free_Edge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Free_Edge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Free_Fit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Free_Fit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sp_Grid_Diamond" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sp-Grid-Diamond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -193,6 +268,33 @@
   <data name="Sp_Panel_Tri_Pattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sp-Panel-Tri_Pattern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Sp_Primative_Sphere_Baseball" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Primative-Sphere_Baseball.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Tile_Fan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Tile-Fan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Tile_Radial_Diamond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Tile-Radial_Diamond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Tile_Radial_Quads" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Tile-Radial_Quads.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Tile_Radial_Tris" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Tile-Radial_Tris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Tile_Stitch_Quad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Tile-Stitch_Quad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Tile_Stitch_Triangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Tile-Stitch_Triangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_CloseSurface" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-CloseSurface.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Extend" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Extend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sp_Util_Frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sp-Util-Frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -201,6 +303,45 @@
   </data>
   <data name="Sp_Util_Join" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sp-Util-Join.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_OffsetSolid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-OffsetSolid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Rebuild" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Rebuild.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Rebuild_One" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Rebuild_One.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Reverse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Shrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Shrink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Split" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Split.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Split2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Split2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Split3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Split3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_SubSurface" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-SubSurface.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_SubSurface2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-SubSurface2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_SubSurface3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-SubSurface3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Swap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Swap.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sp_Util_Weight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Weight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SurfacePlus_Logo_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SurfacePlus_Logo_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

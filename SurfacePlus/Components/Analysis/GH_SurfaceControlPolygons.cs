@@ -13,7 +13,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public GH_SurfaceControlPolygons()
           : base("Surface Control Polygons", "Surface Ctrl Pgon",
-              "The control point polygon in teh U or V direction",
+              "The control point polygon in the U or V direction",
               Constants.CatSurface, Constants.SubAnalysis)
         {
         }
@@ -98,7 +98,7 @@ namespace SurfacePlus.Components
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return null;
+                return Properties.Resources.Sp_Ana_Srf_ControlPolygons;
             }
         }
 
