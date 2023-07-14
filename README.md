@@ -9,6 +9,8 @@ Surface Plus is a collection of brep and nurbs surface utilities. The components
 
 [Download the Plugin at Food4Rhino](https://www.food4rhino.com/en/app/curve-0)
 
+## Learn More
+[Plugin Documentation](https://interopxyz.gitbook.io/surface-plus/)
 
 ## Dependencies
  - [Rhinoceros 3d](https://www.rhino3d.com/)
