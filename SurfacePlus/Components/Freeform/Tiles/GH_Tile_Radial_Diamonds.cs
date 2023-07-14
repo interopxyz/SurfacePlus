@@ -31,6 +31,8 @@ namespace SurfacePlus.Components
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
+            pManager.AddNumberParameter("Shift Parameter", "T", "Shifts the new edge point", GH_ParamAccess.item, 0);
+            pManager[1].Optional = true;
         }
 
         /// <summary>
@@ -50,7 +52,10 @@ namespace SurfacePlus.Components
             Curve curve = null;
             if (!DA.GetData(0, ref curve)) return;
 
-            List<Surface> surfaces = curve.StellateDiamonds(out bool status);
+            double t = 0;
+            DA.GetData(1, ref t);
+
+            List<Surface> surfaces = curve.StellateDiamonds(t, out bool status);
 
             if (!status) return;
 

@@ -73,7 +73,7 @@ namespace SurfacePlus.Components
             if(isActive)surface2 = NurbsSurface.CreatePeriodicSurface(surface1, direction, smooth);
             
             DA.SetData(0, surface2);
-            DA.SetData(1, surface2.IsPeriodic(direction));
+            if(surface2!=null)DA.SetData(1, surface2.IsPeriodic(direction));
         }
 
         /// <summary>

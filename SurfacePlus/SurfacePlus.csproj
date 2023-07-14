@@ -261,9 +261,6 @@
     <None Include="Resources\Sp-Crv_Blend.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sp-Free_Edge.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Sp-Free_Blend_Surface.png" />
   </ItemGroup>
   <ItemGroup>
@@ -277,24 +274,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sp-Crv_Offset.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Tile-Stitch_Quad.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Tile-Radial_Tris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Tile-Radial_Quads.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Tile-Radial_Diamond.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Tile-Fan.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sp-Tile-Stitch_Triangle.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sp-Util-Split2.png" />
@@ -397,6 +376,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sp-Panel-Quad_Shear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Free_Edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Stitch_Quad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Radial_Quads.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Radial_Tris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Radial_Diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Fan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Tile-Stitch_Triangle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -60,7 +60,7 @@ namespace SurfacePlus.Components
             Surface surface = null;
             if (!DA.GetData(0, ref surface)) return;
 
-            NurbsSurface surface1 = surface.ToNurbsSurface();
+            NurbsSurface surface1 = surface.Unitize();
 
             int direction = 0;
             DA.GetData(1, ref direction);
@@ -69,9 +69,9 @@ namespace SurfacePlus.Components
             DA.GetData(2, ref t);
 
             Surface splitA = surface1.ToNurbsSurface();
-            if(t.T0>surface1.Domain(direction).T0)splitA = surface1.Split(direction, surface1.Domain(direction).Evaluate(t.T0))[1];
+            if(t.Min > 0) splitA = surface1.Split(direction, surface1.Domain(direction).Evaluate(t.Min))[1];
             Surface splitB = splitA.ToNurbsSurface();
-            if (t.T1 < surface1.Domain(direction).T1) splitB = splitA.Split(direction, surface1.Domain(direction).Evaluate(t.T0))[1];
+            if (t.Max < 1) splitB = splitA.Split(direction, surface1.Domain(direction).Evaluate(t.Max))[1];
 
             DA.SetData(0, splitB);
         }

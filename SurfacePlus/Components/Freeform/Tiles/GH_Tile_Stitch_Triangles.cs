@@ -31,6 +31,8 @@ namespace SurfacePlus.Components
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
+            pManager.AddIntegerParameter("Shift Index", "I", "Shifts the starting index", GH_ParamAccess.item, 0);
+            pManager[1].Optional = true;
         }
 
         /// <summary>
@@ -50,7 +52,10 @@ namespace SurfacePlus.Components
             Curve curve = null;
             if (!DA.GetData(0, ref curve)) return;
 
-            List<Surface> surfaces = curve.StitchTriangles(out bool status);
+            int shift = 0;
+            DA.GetData(1, ref shift);
+
+            List<Surface> surfaces = curve.StitchTriangles(shift, out bool status);
 
             if (!status) return;
 

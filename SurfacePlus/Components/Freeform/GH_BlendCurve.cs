@@ -80,26 +80,26 @@ namespace SurfacePlus.Components
             Brep brepA = null;
             if (!DA.GetData(0, ref brepA)) return;
 
-            Brep brepB = null;
-            if (!DA.GetData(4, ref brepB)) return;
-
             int indexA = 0;
             DA.GetData(1, ref indexA);
-
-            int indexB = 0;
-            DA.GetData(5, ref indexB);
 
             double tA = 0.5;
             DA.GetData(2, ref tA);
 
-            double tB = 0.5;
-            DA.GetData(6, ref tB);
-
             int typeA = 2;
             DA.GetData(3, ref typeA);
 
+            Brep brepB = null;
+            if (!DA.GetData(4, ref brepB)) return;
+
+            int indexB = 0;
+            DA.GetData(5, ref indexB);
+
+            double tB = 0.5;
+            DA.GetData(6, ref tB);
+
             int typeB = 2;
-            DA.GetData(7, ref typeA);
+            DA.GetData(7, ref typeB);
 
             BrepEdge edgeA = brepA.Edges[indexA];
             BrepFace faceA = brepA.Faces[edgeA.AdjacentFaces()[0]];

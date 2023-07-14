@@ -38,7 +38,8 @@ namespace SurfacePlus.Components
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddSurfaceParameter(Constants.Brep.Name, Constants.Brep.NickName, Constants.Brep.Output, GH_ParamAccess.item);
+            pManager.AddBrepParameter(Constants.Brep.Name, Constants.Brep.NickName, Constants.Brep.Output, GH_ParamAccess.item);
+            pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Output, GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -51,13 +52,16 @@ namespace SurfacePlus.Components
             if (!DA.GetData(0, ref brep)) return;
 
             brep = brep.DuplicateBrep();
+            List<Surface> surfaces = new List<Surface>();
 
             for (int i = 0; i < brep.Faces.Count; i++)
             {
                 brep.Faces[i].ShrinkSurfaceToEdge();
+                surfaces.Add(brep.Faces[i].DuplicateSurface());
             }
             
             DA.SetData(0, brep);
+            DA.SetDataList(1, surfaces);
         }
 
         /// <summary>

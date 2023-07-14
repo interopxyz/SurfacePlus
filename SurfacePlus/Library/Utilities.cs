@@ -12,6 +12,8 @@ namespace SurfacePlus
     public enum PanelTypes { Corner, Loft, Iso };
     public enum BoundaryTypes { Polygon, Interpolated, Geodesic, Iso };
     public enum SurfaceDirection { U, V };
+
+
     public static class Utilities
     {
         #region numeric
@@ -633,6 +635,11 @@ namespace SurfacePlus
 
         #region tiles
 
+        public static Point3d Tween(this Point3d input, Point3d target, double parameter)
+        {
+            return input + (target - input) * parameter;
+        }
+
         public static Polyline Shift(this Polyline input, int steps)
         {
             Polyline output = new Polyline(input);
@@ -669,7 +676,7 @@ namespace SurfacePlus
             return surfaces;
         }
 
-        public static List<Surface> StellateQuads(this Curve input, out bool status)
+        public static List<Surface> StellateQuads(this Curve input, int shift, out bool status)
         {
             status = false;
             List<Surface> surfaces = new List<Surface>();
@@ -678,6 +685,7 @@ namespace SurfacePlus
             if (p.Count < 4) return surfaces;
             if (p.Count.isOdd()) return surfaces;
 
+            p = p.Shift(shift);
             Point3d c = p.CenterPoint();
 
             for (int i = 0; i < p.Count - 2; i += 2)
@@ -689,7 +697,7 @@ namespace SurfacePlus
             return surfaces;
         }
 
-        public static List<Surface> StellateDiamonds(this Curve input, out bool status)
+        public static List<Surface> StellateDiamonds(this Curve input,double param, out bool status)
         {
             status = false;
             List<Surface> surfaces = new List<Surface>();
@@ -701,15 +709,17 @@ namespace SurfacePlus
 
             for (int i = 0; i < p.Count - 2; i++)
             {
-                surfaces.Add(NurbsSurface.CreateFromCorners((p[i + 1] + p[i + 2]) / 2.0, p[i + 1], (p[i + 0] + p[i + 1]) / 2.0, c));
+                Point3d p0 = p[i + 1];
+                Point3d p1 = p[i + 2];
+                surfaces.Add(NurbsSurface.CreateFromCorners(p[i + 1].Tween(p[i+2],param), p[i + 1], p[i + 0].Tween(p[i + 1], param), c));
             }
-            if (p.IsClosed) surfaces.Add(NurbsSurface.CreateFromCorners((p[0] + p[1]) / 2.0, p[0], (p[p.Count - 1] + p[p.Count - 2]) / 2.0, c));
+            if (p.IsClosed) surfaces.Add(NurbsSurface.CreateFromCorners(p[0].Tween(p[1],param), p[0], p[p.Count - 2].Tween(p[p.Count - 1],param), c));
 
             status = true;
             return surfaces;
         }
 
-        public static List<Surface> Fan(this Curve input, out bool status)
+        public static List<Surface> Fan(this Curve input, int shift, out bool status)
         {
             status = false;
             List<Surface> surfaces = new List<Surface>();
@@ -718,6 +728,7 @@ namespace SurfacePlus
             if (!p.IsClosed) return surfaces;
             if (p.Count < 4) return surfaces;
 
+            p = p.Shift(shift);
             for (int i = 1; i < p.Count - 1; i++)
             {
                 surfaces.Add(NurbsSurface.CreateFromCorners(p[0], p[i + 1], p[i]));
@@ -727,7 +738,7 @@ namespace SurfacePlus
             return surfaces;
         }
 
-        public static List<Surface> StitchQuads(this Curve input, out bool status)
+        public static List<Surface> StitchQuads(this Curve input,int shift, out bool status)
         {
             status = false;
             List<Surface> surfaces = new List<Surface>();
@@ -738,19 +749,20 @@ namespace SurfacePlus
             if (c < 4) return surfaces;
             if (c.isOdd()) return surfaces;
 
+            p = p.Shift(shift);
             p = p.Shift(1);
 
             int h = (int)Math.Floor(c / 2.0);
             for (int i = 0; i < h; i++)
             {
-                surfaces.Add(NurbsSurface.CreateFromCorners(p[i], p[c - 2 - i], p[i + 1], p[c - 3 - i]));
+                surfaces.Add(NurbsSurface.CreateFromCorners(p[i], p[c - 2 - i], p[c - 3 - i], p[i + 1]));
             }
 
             status = true;
             return surfaces;
         }
 
-        public static List<Surface> StitchTriangles(this Curve input, out bool status)
+        public static List<Surface> StitchTriangles(this Curve input, int shift, out bool status)
         {
             status = false;
             List<Surface> surfaces = new List<Surface>();
@@ -760,6 +772,7 @@ namespace SurfacePlus
             if (!p.IsClosed) return surfaces;
             if (c < 4) return surfaces;
 
+            p = p.Shift(shift);
             int h = (int)Math.Floor(c / 2.0);
             surfaces.Add(NurbsSurface.CreateFromCorners(p[0], p[c - 2], p[1]));
             for (int i = 1; i < h - 1; i++)
