@@ -26,7 +26,7 @@ namespace SurfacePlus
             get
             {
                 //Return a short string describing the purpose of this GHA library.
-                return "Additional curve editing utilities for Grasshopper 3d";
+                return "Additional surface editing utilities for Grasshopper 3d";
             }
         }
         public override Guid Id
@@ -51,6 +51,14 @@ namespace SurfacePlus
             {
                 //Return a string representing your preferred contact details.
                 return "interopxyz@gmail.com";
+            }
+        }
+
+        public override string AssemblyVersion
+        {
+            get
+            {
+                return "1.0.1.0";
             }
         }
     }
