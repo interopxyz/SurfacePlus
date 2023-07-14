@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfacePlus", "SurfacePlus.csproj", "{9F4376E8-2631-4F4A-9EEF-A177A8D95A15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F4376E8-2631-4F4A-9EEF-A177A8D95A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F4376E8-2631-4F4A-9EEF-A177A8D95A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F4376E8-2631-4F4A-9EEF-A177A8D95A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F4376E8-2631-4F4A-9EEF-A177A8D95A15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42C2BCA0-FE83-41AC-88A4-989772B411F8}
+	EndGlobalSection
+EndGlobal
