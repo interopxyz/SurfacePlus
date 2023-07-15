@@ -23,7 +23,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.tertiary; }
+            get { return GH_Exposure.tertiary | GH_Exposure.obscure; }
         }
 
         /// <summary>
