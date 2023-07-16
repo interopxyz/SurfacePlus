@@ -58,7 +58,7 @@ namespace SurfacePlus
         {
             get
             {
-                return "1.0.2.0";
+                return "1.0.3.0";
             }
         }
     }
