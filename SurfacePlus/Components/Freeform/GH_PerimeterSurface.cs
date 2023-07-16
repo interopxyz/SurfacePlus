@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace SurfacePlus.Components
 {
-    public class GH_EdgeSurface : GH_Component
+    public class GH_PerimeterSurface : GH_Component
     {
         /// <summary>
         /// Initializes a new instance of the QuadSurface class.
         /// </summary>
-        public GH_EdgeSurface()
+        public GH_PerimeterSurface()
           : base("Perimeter Surface", "Per Srf",
               "Create a Surface from a closed curve with 3 or 4 control points",
               Constants.CatSurface, Constants.SubFreeform)

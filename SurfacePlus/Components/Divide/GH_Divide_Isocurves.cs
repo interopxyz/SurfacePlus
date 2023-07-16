@@ -11,7 +11,7 @@ namespace SurfacePlus.Components
         /// Initializes a new instance of the Isocurves class.
         /// </summary>
         public GH_Divide_Isocurves()
-          : base("Isocurves", "Isocurves",
+          : base("Isocurves", "Div Iso",
               "Extract a specific number of weighted isocurves",
               Constants.CatSurface, Constants.SubDivide)
         {

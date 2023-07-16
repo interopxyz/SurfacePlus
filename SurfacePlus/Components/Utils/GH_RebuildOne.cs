@@ -38,7 +38,7 @@ namespace SurfacePlus.Components
             pManager[2].Optional = true;
             pManager.AddIntegerParameter("Loft Type", "L", "The surface loft type", GH_ParamAccess.item,0);
             pManager[3].Optional = true;
-            pManager.AddNumberParameter("Tolerance", "D", "Tolerance value", GH_ParamAccess.item, 0.001);
+            pManager.AddNumberParameter("Tolerance", "T", "Tolerance value", GH_ParamAccess.item, 0.001);
             pManager[4].Optional = true;
 
             Param_Integer paramA = (Param_Integer)pManager[1];

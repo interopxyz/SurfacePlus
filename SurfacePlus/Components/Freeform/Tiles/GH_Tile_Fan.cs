@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public GH_Curve_Triangulate()
           : base("Triangular Fan Surfaces", "Fan",
-              "Triangulate a closed polyline fanning out from the start point ",
+              "Triangulate a closed polyline fanning out from the start point",
               Constants.CatSurface, Constants.SubFreeform)
         {
         }

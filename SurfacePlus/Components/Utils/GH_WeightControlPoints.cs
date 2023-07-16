@@ -83,12 +83,7 @@ namespace SurfacePlus.Components
                 surface1.Points.SetControlPoint(u,v, cp);
             }
 
-            foreach (ControlPoint pt in surface1.Points)
-            {
-                points.Add(pt.Location);
-            }
             DA.SetData(0, surface1);
-            DA.SetDataList(1, points);
         }
 
         /// <summary>

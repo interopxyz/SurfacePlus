@@ -33,7 +33,7 @@ namespace SurfacePlus.Components
         {
             pManager.AddBrepParameter(Constants.Brep.Name, Constants.Brep.NickName, Constants.Brep.Input, GH_ParamAccess.list);
             pManager[0].Optional = false;
-            pManager.AddNumberParameter("Tolerance", "D", "Fitting Tolerance", GH_ParamAccess.item, 0.001);
+            pManager.AddNumberParameter("Tolerance", "T", "Join Tolerance", GH_ParamAccess.item, 0.001);
             pManager[1].Optional = true;
         }
 

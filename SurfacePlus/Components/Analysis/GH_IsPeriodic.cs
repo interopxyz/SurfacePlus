@@ -13,7 +13,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public GH_IsPeriodic()
           : base("Is Periodic", "Periodic",
-              "Get or set if a surface periodic in one direction",
+              "Get or Set if a surface periodic in one direction",
               Constants.CatSurface, Constants.SubAnalysis)
         {
         }

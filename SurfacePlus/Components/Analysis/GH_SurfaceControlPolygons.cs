@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// Initializes a new instance of the GH_SurfaceHulls class.
         /// </summary>
         public GH_SurfaceControlPolygons()
-          : base("Surface Control Polygons", "Surface Ctrl Pgon",
+          : base("Surface Control Polygons", "Polygons",
               "The control point polygon in the U or V direction",
               Constants.CatSurface, Constants.SubAnalysis)
         {

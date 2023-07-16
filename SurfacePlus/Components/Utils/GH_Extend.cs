@@ -33,7 +33,7 @@ namespace SurfacePlus.Components
         {
             pManager.AddSurfaceParameter(Constants.Surface.Name, Constants.Surface.NickName, Constants.Surface.Input, GH_ParamAccess.item);
             pManager[0].Optional = false;
-            pManager.AddIntegerParameter("Edge Direction", "E", "Optionally sets the Surface Degree in the U direction", GH_ParamAccess.item,1);
+            pManager.AddIntegerParameter("Edge Direction", "E", "The edge to extend", GH_ParamAccess.item,1);
             pManager[1].Optional = true;
             pManager.AddNumberParameter("Distance", "D", "The extension distance", GH_ParamAccess.item,1);
             pManager[2].Optional = true;

@@ -32,7 +32,7 @@ namespace SurfacePlus.Components
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
-            pManager.AddNumberParameter("Paramter", "P", "The shifted ", GH_ParamAccess.item, 0.333);
+            pManager.AddNumberParameter("Paramter", "P", "The evaluation parameter for each edge", GH_ParamAccess.item, 0.333);
             pManager.AddBooleanParameter("Flip", "F", "Flip the orientation of the triangulation panel", GH_ParamAccess.item, false);
             pManager[5].Optional = true;
             pManager.AddIntegerParameter("Edges", "E", "Edge filtering mode", GH_ParamAccess.item, 0);
