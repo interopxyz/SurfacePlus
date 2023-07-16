@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public GH_BaseballSphere()
           : base("Baseball Sphere", "Baseball",
-                "A Brep Sphere made of two Surfaces",
+                "A Brep Sphere made of two trimmed surfaces",
               Constants.CatSurface, Constants.SubPrimitive)
         {
         }

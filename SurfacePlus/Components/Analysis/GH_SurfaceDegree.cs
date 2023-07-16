@@ -11,8 +11,8 @@ namespace SurfacePlus.Components
         /// Initializes a new instance of the SurfaceDegree class.
         /// </summary>
         public GH_SurfaceDegree()
-          : base("Surface Degree", "Srf Deg",
-              "Get or Set the the Surface Degree",
+          : base("Surface Degree", "Degree",
+              "Get or Set the Surface Degree",
               Constants.CatSurface, Constants.SubAnalysis)
         {
         }

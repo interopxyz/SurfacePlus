@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace SurfacePlus.Components
 {
-    public class GH_IsSurfaceClosed : GH_Component
+    public class GH_IsClosed : GH_Component
     {
         /// <summary>
         /// Initializes a new instance of the GH_IsSurfaceClosed class.
         /// </summary>
-        public GH_IsSurfaceClosed()
+        public GH_IsClosed()
           : base("Is Closed", "Closed",
               "Check if a surface is closed in either the U or V directions or solid",
               Constants.CatSurface, Constants.SubAnalysis)

@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// Initializes a new instance of the DivideCount class.
         /// </summary>
         public GH_Divide_Count()
-          : base("Divide Count", "Div Count",
+          : base("Divide Count", "Div Cnt",
               "Divide a surface into evenly spaced isocurve spans by count",
               Constants.CatSurface, Constants.SubDivide)
         {

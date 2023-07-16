@@ -27,7 +27,7 @@ namespace SurfacePlus.Components
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddCurveParameter("Polyline", "P", "A polyline or curve", GH_ParamAccess.item);
-            pManager[0].Optional = true;
+            pManager[0].Optional = false;
         }
 
         /// <summary>

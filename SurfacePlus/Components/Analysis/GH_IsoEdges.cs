@@ -15,7 +15,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public GH_IsoEdges()
           : base("Iso Edges", "Iso Edges",
-              "Extract the Iso Edges",
+              "Extract the Iso Side Edges",
               Constants.CatSurface, Constants.SubAnalysis)
         {
         }

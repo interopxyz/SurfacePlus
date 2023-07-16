@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public GH_Divide_Span()
           : base("Divide Span", "Div Span",
-              "Divides a surface in the U or V direction by an aproximated span length at a parameter.",
+              "Divides a surface in the U or V direction by an approximated span length at a parameter",
               Constants.CatSurface, Constants.SubDivide)
         {
         }

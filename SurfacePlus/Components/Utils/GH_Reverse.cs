@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public Reverse()
           : base("Reverse Surface", "Reverse",
-              "Reverse the  direction",
+              "Reverse the U or V directions of a surface",
               Constants.CatSurface, Constants.SubUtilities)
         {
         }

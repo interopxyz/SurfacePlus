@@ -37,7 +37,7 @@ namespace SurfacePlus.Components
             pManager[1].Optional = false;
             pManager.AddNumberParameter("Start Parameter", "P0", "The starting edge parameter", GH_ParamAccess.item, 0.5);
             pManager[2].Optional = false;
-            pManager.AddIntegerParameter("Start Type", "T0", "The start ege blend type", GH_ParamAccess.item, 2);
+            pManager.AddIntegerParameter("Start Type", "T0", "The start edge blend type", GH_ParamAccess.item, 2);
             pManager[3].Optional = false;
 
 
@@ -45,7 +45,7 @@ namespace SurfacePlus.Components
             pManager[4].Optional = false;
             pManager.AddIntegerParameter("End Edge", "E1", "The ending edge index from the end Brep", GH_ParamAccess.item, 0);
             pManager[5].Optional = false;
-            pManager.AddNumberParameter("End Parameter", "P1", "The end edge parameter", GH_ParamAccess.item, 0.5);
+            pManager.AddNumberParameter("End Parameter", "P1", "The ending edge parameter", GH_ParamAccess.item, 0.5);
             pManager[6].Optional = false;
             pManager.AddIntegerParameter("End Type", "T1", "The end edge blend type", GH_ParamAccess.item, 2);
             pManager[7].Optional = false;

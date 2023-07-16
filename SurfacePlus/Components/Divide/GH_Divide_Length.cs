@@ -12,7 +12,7 @@ namespace SurfacePlus.Components
         /// </summary>
         public GH_Divide_Length()
           : base("Divide Length", "Div Len",
-              "Divides a surface in the U or V direction by an aproximated length at a parameter",
+              "Divides a surface in the U or V direction by an approximated length at a parameter",
               Constants.CatSurface, Constants.SubDivide)
         {
         }

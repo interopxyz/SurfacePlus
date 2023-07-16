@@ -42,7 +42,7 @@ namespace SurfacePlus.Components
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddIntegerParameter("Isostatus Index", "I", "The index of the isostatus state", GH_ParamAccess.item);
-            pManager.AddTextParameter("Name", "N", "The isostatus", GH_ParamAccess.item);
+            pManager.AddTextParameter("Name", "N", "The isostatus name", GH_ParamAccess.item);
             pManager.AddCurveParameter("Curve", "C", "The corresponding edge curve", GH_ParamAccess.item);
         }
 

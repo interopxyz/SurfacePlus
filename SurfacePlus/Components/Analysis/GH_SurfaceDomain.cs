@@ -11,8 +11,8 @@ namespace SurfacePlus.Components
         /// Initializes a new instance of the MyComponent1 class.
         /// </summary>
         public GH_SurfaceDomain()
-          : base("Surface Domain", "Srf Dom",
-              "Get or Set the the Surface Domain",
+          : base("Surface Domain", "Domain",
+              "Get or Set the Surface Domain",
               Constants.CatSurface, Constants.SubAnalysis)
         {
         }
