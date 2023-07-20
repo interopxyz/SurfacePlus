@@ -103,6 +103,7 @@
     <Compile Include="Components\Grids\Surfaces\GH_Panel_Diamond_Quad.cs" />
     <Compile Include="Components\Grids\Surfaces\GH_Panel__BaseTri.cs" />
     <Compile Include="Components\Utils\GH_SubSurface.cs" />
+    <Compile Include="Components\Utils\OffsetTapered.cs" />
     <Compile Include="Library\Constants.cs" />
     <Compile Include="Components\Divide\GH_Divide_Count.cs" />
     <Compile Include="Components\Divide\GH_Divide_Length.cs" />
@@ -397,6 +398,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sp-Tile-Stitch_Triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sp-Util-Taper.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

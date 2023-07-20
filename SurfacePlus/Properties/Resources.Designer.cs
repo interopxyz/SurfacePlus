@@ -803,6 +803,16 @@ namespace SurfacePlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sp_Util_Taper {
+            get {
+                object obj = ResourceManager.GetObject("Sp_Util_Taper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sp_Util_Weight {
             get {
                 object obj = ResourceManager.GetObject("Sp_Util_Weight", resourceCulture);
