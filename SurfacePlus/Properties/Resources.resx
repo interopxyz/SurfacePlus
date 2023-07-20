@@ -340,6 +340,9 @@
   <data name="Sp_Util_Swap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sp-Util-Swap.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Sp_Util_Taper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sp-Util-Taper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sp_Util_Weight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sp-Util-Weight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

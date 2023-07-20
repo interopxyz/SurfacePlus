@@ -56,9 +56,9 @@ namespace SurfacePlus.Components
             double d = 1.0;
             DA.GetData(1, ref d);
 
-            Brep[] breps = Brep.CreateOffsetBrep(brep, d, true, true, 0.001, out Brep[] blends, out Brep[] walls);
+            Brep offset = Brep.CreateFromOffsetFace(brep.Faces[0], d, 0.001, false, true);
 
-            DA.SetData(0, breps[0]);
+            DA.SetData(0, offset);
         }
 
         /// <summary>
