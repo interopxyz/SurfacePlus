@@ -148,7 +148,7 @@ namespace SurfacePlus
             int cu = countU + 1;
             int cv = countV + 1;
 
-            List<double> u = isocurve.DivideByCount(countU, true).ToList();
+            List<double> u = isocurve.Parameterize(countU);
 
             Point2d[] p = new Point2d[2];
             List<List<Point2d>> uv = new List<List<Point2d>>();
@@ -156,7 +156,17 @@ namespace SurfacePlus
             for (int i = 0; i < cu; i++)
             {
                 Curve crv = surface.IsoCurve(1 - x, u[i]);
-                List<double> v = crv.DivideByCount(countV, true).ToList();
+                
+                List<double> v = new List<double>();
+                if (crv.GetLength() > 0)
+                {
+                    v = crv.DivideByCount(countV, true).ToList();
+                }
+                else
+                {
+                    v = cv.Range();
+                }
+                if (v[v.Count - 1] != 1.0) v.Add(1.0);
 
                 uv.Add(new List<Point2d>());
                 for (int j = 0; j < cv; j++)
@@ -355,7 +365,8 @@ namespace SurfacePlus
             int cv = countV + 1;
                 IsoFace[] face = new IsoFace[2];
 
-            List<double> u = isocurve.DivideByCount(countU, true).ToList();
+            List<double> u = isocurve.Parameterize(countU);
+
             List<double> t = shifts.Repeat(cu);
 
             for (int i = 1; i < countU+1; i++)
@@ -386,7 +397,7 @@ namespace SurfacePlus
             int cv = countV + 1;
             IsoFace[] face = new IsoFace[2];
 
-            List<double> u = isocurve.DivideByCount(countU, true).ToList();
+            List<double> u = isocurve.Parameterize(countU);
 
             for (int i = 0; i < countU; i++)
             {
@@ -807,7 +818,7 @@ namespace SurfacePlus
             bool isOddU = (oddU % 2) == 0;
             bool isOddV = (oddV % 2) == 0;
 
-            List<double> u = isocurve.DivideByCount(countU, true).ToList();
+            List<double> u = isocurve.Parameterize(countU);
 
             Point2d[] p = new Point2d[2];
             List<List<Point2d>> uv = new List<List<Point2d>>();
@@ -815,7 +826,16 @@ namespace SurfacePlus
             for (int i = 0; i < cu; i++)
             {
                 Curve crv = surface.IsoCurve(1 - x, u[i]);
-                List<double> v = crv.DivideByCount(countV * 2, true).ToList();
+                List<double> v = new List<double>();
+                if (crv.GetLength() > 0)
+                {
+                    v = crv.DivideByCount(countV*2, true).ToList();
+                }
+                else
+                {
+                    v = cv.Range();
+                }
+                if (v[v.Count - 1] != 1.0) v.Add(1.0);
 
                 uv.Add(new List<Point2d>());
                 for (int j = 0; j < cv; j++)
