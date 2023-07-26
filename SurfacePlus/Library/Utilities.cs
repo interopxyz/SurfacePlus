@@ -18,6 +18,38 @@ namespace SurfacePlus
     {
         #region numeric
 
+        public static List<double> Parameterize(this Curve curve, int count, bool ends = true)
+        {
+            List<double> t = new List<double>();
+
+            if (curve.GetLength() > 0)
+            {
+                t = curve.DivideByCount(count, ends).ToList();
+            }
+            else
+            {
+                t = count.Range();
+            }
+            if (t[t.Count - 1] != 1.0) t.Add(1.0);
+
+            if (!ends)
+            {
+                t.RemoveAt(t.Count - 1);
+                t.RemoveAt(0);
+            }
+
+            return t;
+        }
+
+        public static List<double> Range(this int count)
+        {
+            double step = 1.0 / count;
+            List<double> outputs = new List<double>();
+            for (int i = 0; i < count; i++) outputs.Add(step * i);
+
+            return outputs;
+        }
+
         public static bool isOdd(this int input)
         {
             return (input % 2) == 0;
@@ -233,9 +265,10 @@ namespace SurfacePlus
 
             int x = (int)direction;
             Curve isocurve = surface.IsoCurve(x, 0);
-            List<double> t = isocurve.DivideByCount(count, false).ToList();
 
-            for (int i = 0; i < count - 1; i++)
+            List<double> t = isocurve.Parameterize(count);
+
+            for (int i = 1; i < count - 1; i++)
             {
                 Surface[] split = surface.Split(x, t[i]);
                 surfaces.Add(split[0].ToCornerSurface(direction));
@@ -340,7 +373,7 @@ namespace SurfacePlus
         public static List<double> DivideByCount(this Curve input, int count, bool ends, double t)
         {
             List<double> outputs = new List<double>();
-            List<double> values = input.DivideByCount(count, ends).ToList();
+            List<double> values = input.Parameterize(count);
             if ((count > 1) & (t > 0) & (t < 1))
             {
                 outputs.Add(values[0]);
@@ -555,7 +588,17 @@ namespace SurfacePlus
             Curve isocurve = surface.IsoCurve(1 - x, 0);
             //curves.Add(isocurve);
 
-            List<double> t = isocurve.DivideByCount(count, true).ToList();
+            List<double> t = new List<double>();
+
+            if (isocurve.GetLength() > 0)
+            {
+                t = isocurve.DivideByCount(count, true).ToList();
+            }
+            else
+            {
+                t = count.Range();
+            }
+            if (t[t.Count - 1] != 1.0) t.Add(1.0);
 
             for (int i = 0; i < count + 1; i++)
             {
